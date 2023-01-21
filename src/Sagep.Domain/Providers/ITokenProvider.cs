@@ -5,6 +5,7 @@ using Sagep.Domain.Models;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Linq;
 
 namespace Sagep.Domain.Security
 {
@@ -27,23 +28,19 @@ namespace Sagep.Domain.Security
                 {
                     List<Claim> claims = new List<Claim>();
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, appUser.Id));
-                    claims.Add(new Claim(ClaimTypes.Name, appUser?.UserName ?? string.Empty));
+                    claims.Add(new Claim(ClaimTypes.Name, appUser.UserName));
                     
-                    // ** Implementar as entidades de grupo de usuário, e que mais
-                    // ** for necessário para realizar a implementação abaixo
-
-
-                    // try
-                    // {
-                    //     foreach (var aUg in appUser.ApplicationUserGroups)
-                    //     {
-                    //         foreach (var aRg in aUg.ApplicationGroup.ApplicationRoleGroups.Select(x => x.ApplicationRole.Name))
-                    //         {
-                    //             claims.Add(new Claim(ClaimTypes.Role, aRg));
-                    //         }
-                    //     }    
-                    // }
-                    // catch { throw; }
+                    try
+                    {
+                        foreach (var aUg in appUser.ApplicationUserGroups.Where(x => !x.ApplicationGroup.IsDeleted).ToList())
+                        {
+                            foreach (var aRg in aUg.ApplicationGroup.ApplicationRoleGroups.Select(x => x.ApplicationRole.Name))
+                            {
+                                claims.Add(new Claim(ClaimTypes.Role, aRg));
+                            }
+                        }    
+                    }
+                    catch { throw; }
                     return claims.ToArray();
                 }
             }

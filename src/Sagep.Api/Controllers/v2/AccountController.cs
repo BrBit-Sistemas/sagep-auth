@@ -10,7 +10,6 @@ using Sagep.Application.ViewModels;
 using Sagep.Domain.Enums;
 using Sagep.Api.Helpers;
 using Sagep.Domain.Security;
-using System.Security.Claims;
 
 namespace Sagep.Api.Controllers.v2
 {
@@ -73,7 +72,7 @@ namespace Sagep.Api.Controllers.v2
                     AddError("Usuário bloqueado. \nAguarde 1 minuto e tente novamente. Caso persista, solicite o desbloqueio ao administrador do sistema.");
                     return CustomResponse(400);
                 } else if (sigIn.IsNotAllowed) {
-                    AddError("Você não tem permissão para entrar no BoxApp.");
+                    AddError("E-mail não confirmado. Check seu e-mai de confirmação, caso o problema persista, solicite novamente um e-mail de verificação.");
                     return CustomResponse(400);
                 } else if (sigIn.RequiresTwoFactor) {
                     AddError("Você ativou a autenticação de dois fatores. Portanto, faça login nesta condição.");
@@ -186,9 +185,10 @@ namespace Sagep.Api.Controllers.v2
 
             if (string.IsNullOrEmpty(token))
             {
-                AddError("Não foi possível obter o token de authorização. Tente novamente, caso persista acione a equipe de suporte.");
+                AddError("Não foi possível obter o token. \nTente novamente, caso o problema persista acione a equipe de suporte.");
                 return CustomResponse(400);
             }
+            
             token = token.Replace("Bearer ", "");
 
             var pureToken = token;

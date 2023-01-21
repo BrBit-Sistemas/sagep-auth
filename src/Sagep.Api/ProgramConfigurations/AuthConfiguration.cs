@@ -14,7 +14,7 @@ namespace SigespWeb.Api.ProgramConfigurations
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
-            services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddRoleManager<RoleManager<ApplicationRole>>()
                     .AddEntityFrameworkStores<SagepAppDbContext>()
                     .AddDefaultTokenProviders();
