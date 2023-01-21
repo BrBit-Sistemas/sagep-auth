@@ -1,4 +1,5 @@
 using Sagep.Domain.Interfaces;
+using Sagep.Domain.Models;
 using Sagep.Domain.Security;
 using Sagep.Infra.Data.Extensions;
 
@@ -14,35 +15,36 @@ namespace SigespWeb.Api.Middlewares
         }
         
         public async Task Invoke(HttpContext _httpContext,
-                                 ITenantRepository _tenantRepository,
+                                 IApplicationUserRepository _applicationUserRepository,
                                  ILogger<TenantSecurityMiddleware> _logger,
                                  IUserProvider _userProvider)
         {
-            string tenantIdentifier = _httpContext?.Session?.GetString("TenantId") ?? string.Empty;
-            string userId = _userProvider.GetId();
-
-            _logger.LogInformation($"UserId é => {userId}");
-            _logger.LogInformation($"Identifier é => {tenantIdentifier}");
+            String tenantIdentifier = string.Empty;
+            try
+            {
+                tenantIdentifier = _httpContext?.Session?.GetString("TenantId") ?? string.Empty;
+                _logger.LogInformation($"Identifier é => {tenantIdentifier}");
+            }
+            catch { throw; }
             
             if (string.IsNullOrEmpty(tenantIdentifier))
             {
-                var apiKey = _httpContext?.Request?.Headers["X-Api-Key"].FirstOrDefault() ?? string.Empty;
-                if (!string.IsNullOrEmpty(apiKey)) 
+                string userId = _userProvider.GetId();
+                _logger.LogInformation($"UserId => {userId}");
+
+                if (!string.IsNullOrEmpty(userId)) 
                 {
-                    Guid apiKeyGuid;
-                    if (Guid.TryParse(apiKey, out apiKeyGuid))
+                    var user = new ApplicationUser();
+                    try
                     {
-                        string tenantId = await _tenantRepository
-                                                        .GetTenantIdAsync(apiKeyGuid);
-
-                        _logger.LogInformation($"ApiKey é => {tenantIdentifier}");
-
-                        if (!string.IsNullOrEmpty(tenantId))
-                        {
-                            var tenantIdNew = StringHelpers
-                                                .ExtractTenantId(tenantId);
-                            _httpContext?.Session.SetString("TenantId", tenantIdNew?.ToString() ?? string.Empty);
-                        }
+                        user = await _applicationUserRepository.GetByIdWithTenant(userId);
+                    }
+                    catch { throw; }
+                    
+                    if (user != null && user.Tenant != null)
+                    {
+                        _httpContext?.Session.SetString("TenantId", user?.Tenant?.Id.ToString() ?? string.Empty);
+                        _logger.LogInformation($"TenantId to session is => {user?.Tenant.Id}");
                     }
                 }
             }

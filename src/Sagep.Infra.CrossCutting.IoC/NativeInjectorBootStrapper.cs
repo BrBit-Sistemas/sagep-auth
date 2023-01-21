@@ -19,11 +19,10 @@ namespace Sagep.Infra.CrossCutting.IoC
 
             // Services
 
-            // Repositories
-
-            // Infra - Data
+            // Infra Data - Repositories ...
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITenantRepository, TenantRepository>();
+            services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
 
             // Application
             services.AddScoped<INavigationAppService, NavigationAppService>();

@@ -25,6 +25,7 @@ namespace Sagep.Api.Controllers.v2
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
         private readonly IUserProvider _userProvider;
+        private readonly IHttpContextAccessor _httpContextAcessor;
 
         public AccountController(ILogger<AccountController> logger,
                                 ITokenProvider tokenProvider,
@@ -32,7 +33,8 @@ namespace Sagep.Api.Controllers.v2
                                 SignInManager<ApplicationUser> signInManager,
                                 UserManager<ApplicationUser> userManager,
                                 IMapper mapper,
-                                IUserProvider userProvider)
+                                IUserProvider userProvider,
+                                IHttpContextAccessor httpContextAcessor)
         {
             _logger = logger;
             _tokenProvider = tokenProvider;
@@ -41,6 +43,7 @@ namespace Sagep.Api.Controllers.v2
             _userManager = userManager;
             _mapper = mapper;
             _userProvider = userProvider;
+            _httpContextAcessor = httpContextAcessor;
         }
 
         /// <summary>
@@ -206,6 +209,7 @@ namespace Sagep.Api.Controllers.v2
         [HttpGet]
         public async Task<IActionResult> MeAsync()
         {
+            var a = _httpContextAcessor?.HttpContext?.Session.GetString("TenantId");
             #region UserId resolve
             String userId = string.Empty;
             try
