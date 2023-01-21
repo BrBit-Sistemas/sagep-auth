@@ -67,6 +67,9 @@ builder.Services.AddLogging(loggingBuilder => {
                                 loggingBuilder.AddDebug();
                             });
 
+// ----- Add Cors config -----
+builder.Services.AddCorsConfiguration();
+
 // ----- Add filter Authorization -----
 builder.Services.AddMvc(config =>
                         {
@@ -99,6 +102,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors("DevelopmentPermission");
 
 app.UseSession();
 app.UseMiddleware<TenantSecurityMiddleware>();

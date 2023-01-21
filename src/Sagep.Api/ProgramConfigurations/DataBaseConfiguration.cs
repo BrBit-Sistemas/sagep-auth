@@ -1,9 +1,5 @@
 using Sagep.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Hosting;
 
 namespace SigespWeb.Api.ProgramConfigurations
 {
