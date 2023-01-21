@@ -2,7 +2,6 @@ using System;
 using Sagep.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.AspNetCore.Identity;
 using Sagep.Domain.Enums;
 
 namespace Sagep.Infra.Data.Mappings

@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Sagep.Infra.CrossCutting.Identity.Services;
-using Sagep.Domain.Enums;
 using System.Reflection;
 using System.IO;
 using Microsoft.Extensions.DependencyModel;
