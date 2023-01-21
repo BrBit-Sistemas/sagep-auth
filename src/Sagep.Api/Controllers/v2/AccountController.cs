@@ -16,7 +16,7 @@ namespace Sagep.Api.Controllers.v2
     [ApiController]
     [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/account")]
-    public class AccountEndPoint : ApiController
+    public class AccountController : ApiController
     {
         private readonly ITokenProvider _tokenProvider;
         private readonly SagepAppDbContext _context;
@@ -24,11 +24,11 @@ namespace Sagep.Api.Controllers.v2
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
 
-        public AccountEndPoint(ITokenProvider tokenProvider,
-                               SagepAppDbContext context,
-                               SignInManager<ApplicationUser> signInManager,
-                               UserManager<ApplicationUser> userManager,
-                               IMapper mapper)
+        public AccountController(ITokenProvider tokenProvider,
+                                SagepAppDbContext context,
+                                SignInManager<ApplicationUser> signInManager,
+                                UserManager<ApplicationUser> userManager,
+                                IMapper mapper)
         {
             _tokenProvider = tokenProvider;
             _context = context;
@@ -160,19 +160,20 @@ namespace Sagep.Api.Controllers.v2
         }
 
         /// <summary>
-        /// Lista os dados de um usuário
+        /// Lista os dados do usuário logado
         /// </summary>
         /// <param></param>
         /// <returns>Um json com os dados de usuário</returns>
-        /// <response code="200">Lista de dados de usuário</response>
+        /// <response code="200">Lista dos dados do usuário logado</response>
         /// <response code="400">Lista nula</response>
         /// <response code="404">Lista vazia</response>
-        [AllowAnonymous]
-        [Route("me")]
-        [HttpGet]
+        [Authorize(Roles = "Master, CanUserRead, CanUserAll")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
+        [Route("me")]
+        [HttpGet]
         public async Task<IActionResult> MeAsync()
         {
             #region Token resolve
@@ -188,7 +189,7 @@ namespace Sagep.Api.Controllers.v2
                 AddError("Não foi possível obter o token. \nTente novamente, caso o problema persista acione a equipe de suporte.");
                 return CustomResponse(400);
             }
-            
+
             token = token.Replace("Bearer ", "");
 
             var pureToken = token;

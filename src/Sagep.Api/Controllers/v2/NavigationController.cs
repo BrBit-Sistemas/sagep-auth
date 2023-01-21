@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sagep.Api.Controllers.v2;
 using Sagep.Application.Interfaces;
@@ -9,11 +10,11 @@ namespace BoxBack.WebApi.EndPoints
     [ApiController]
     [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/navigation")]
-    public class NavigationEndPoint : ApiController
+    public class NavigationController : ApiController
     {
         private readonly INavigationAppService _navigationManager;
         private readonly IHttpContextAccessor _httpCA;
-        public NavigationEndPoint(INavigationAppService navigationManager, IHttpContextAccessor httpCA) 
+        public NavigationController(INavigationAppService navigationManager, IHttpContextAccessor httpCA) 
         { 
             _navigationManager = navigationManager;
             _httpCA = httpCA;
@@ -27,7 +28,11 @@ namespace BoxBack.WebApi.EndPoints
         /// <response code="200">Lista de itens</response>
         /// <response code="400">Lista nula</response>
         /// <response code="404">Lista vazia</response>
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [Authorize(Roles = "Master, CanUserRead, CanUserAll")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
         [Route("my-menu")]
         [HttpGet]
         public async Task<IActionResult> MyMenuAsync()

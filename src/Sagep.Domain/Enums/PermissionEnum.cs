@@ -36,7 +36,7 @@ namespace Sagep.Domain.Enums
         #endregion
 
         #region Usuário
-        [Description("Pode realizar todas as ações/operações em todos os usuários")]
+        [Description("Pode realizar todas as ações/operações relacionadas a entidade usuário")]
         CanUserAll = 1001,
         [Description("Pode listar os dados de todos os usuários")]
         CanUserList = 1002,
