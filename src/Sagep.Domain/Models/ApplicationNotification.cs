@@ -4,7 +4,7 @@ using Sagep.Domain.Enums;
 
 namespace Sagep.Domain.Models
 {
-    public class ApplicationNotification : EntityAudit
+    public class ApplicationNotification : EntityAuditTenant
     {
         public ApplicationNotification(NotificationScopeTypeEnum scope, 
                                         string senderUser, 
@@ -32,12 +32,10 @@ namespace Sagep.Domain.Models
         public DateTime MessageDate { get; set; }
 
 
+        public Tenant Tenant { get; set; }
+
         [ForeignKey("UserId")]
         public string UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
-
-        [ForeignKey("TenantId")]
-        public Guid TenantId { get; set; }
-        public Tenant Tenant { get; set; }
     }
 }

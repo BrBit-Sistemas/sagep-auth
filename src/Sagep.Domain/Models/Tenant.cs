@@ -66,6 +66,7 @@ namespace Sagep.Domain.Models
         public string EmailPrincipal { get; set; }
 
         public ICollection<ApplicationUser> ApplicationUsers { get; set; }
+        public ICollection<ApplicationGroup> ApplicationGroups { get; set; }
         public ICollection<ApplicationNotification> ApplicationNotifications { get; set; }
     }
 }

@@ -89,39 +89,15 @@ namespace Sagep.Infra.Data.Mappings
             builder.HasData(
                 new Tenant
                 {
-                    Id = Guid.Parse("206c645a-2966-4ad9-19a3-dced7c201bc4"),
+                    Id = new Guid("206c645a-2966-4ad9-19a3-dced7c201bc4"),
                     IsDeleted = false,
                     CreatedAt = DateTime.Now,
-                    CreatedBy = Guid.Parse("1e526008-75f7-4a01-9942-d178f2b38888"),
+                    CreatedBy = new Guid("8e445865-a24d-4543-a6c6-9443d048cdb9"),
                     UpdatedAt = DateTime.Now,
-                    UpdatedBy = Guid.Parse("1e526008-75f7-4a01-9942-d178f2b38888"),
-                    ApiKey = Guid.Parse("06b5fb02-57cb-126b-3ab2-a05f805f1e97"),
+                    UpdatedBy = new Guid("8e445865-a24d-4543-a6c6-9443d048cdb9"),
+                    ApiKey = new Guid("06b5fb02-57cb-126b-3ab2-a05f805f1e97"),
                     Nome = "Tenância Presídio Regional de Criciúma",
-                    NomeExibicao = "PRESÍDIO REGIONAL CRICIÚMA"                   
-                },
-                new Tenant
-                {
-                    Id = Guid.Parse("522eb3d9-e64d-4585-8776-e80f90cd9a0c"),
-                    IsDeleted = false,
-                    CreatedAt = DateTime.Now,
-                    CreatedBy = Guid.Parse("1e526008-75f7-4a01-9942-d178f2b38888"),
-                    UpdatedAt = DateTime.Now,
-                    UpdatedBy = Guid.Parse("1e526008-75f7-4a01-9942-d178f2b38888"),
-                    ApiKey = Guid.Parse("bed67d28-49f5-4496-9d32-334cba103736"),
-                    Nome = "Tenância Master",
-                    NomeExibicao = "TODAS UNIDADES"
-                },
-                new Tenant
-                {
-                    Id = Guid.Parse("c959c0e8-24c9-4714-929f-5536bcd5dc0a"),
-                    IsDeleted = false,
-                    CreatedAt = DateTime.Now,
-                    CreatedBy = Guid.Parse("1e526008-75f7-4a01-9942-d178f2b38888"),
-                    UpdatedAt = DateTime.Now,
-                    UpdatedBy = Guid.Parse("1e526008-75f7-4a01-9942-d178f2b38888"),
-                    ApiKey = Guid.Parse("f2068a0f-2e70-47e2-a528-a54fececd877"),
-                    Nome = "Tenância Penitenciária Sul",
-                    NomeExibicao = "PENITENCIÁRIA SUL"
+                    NomeExibicao = "PRESÍDIO REGIONAL CRICIÚMA"         
                 }
             );
         }

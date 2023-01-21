@@ -37,6 +37,11 @@ namespace Sagep.Infra.Data.Context
         }
 
         public DbSet<Tenant> Tenants { get; set; }
+        public DbSet<ApplicationRole> ApplicationRoles { get; set; }
+        public DbSet<ApplicationGroup> ApplicationGroups { get; set; }
+        public DbSet<ApplicationRoleGroup> ApplicationRoleGroups { get; set; }
+        public DbSet<ApplicationUserGroup> ApplicationUserGroups { get; set; }
+        public DbSet<VerticalNavItem> VerticalNavItems { get; set; }
         public DbSet<ApplicationNotification> ApplicationNotifications { get; set; }
 
          protected override void OnConfiguring(DbContextOptionsBuilder builder)
@@ -56,10 +61,14 @@ namespace Sagep.Infra.Data.Context
                 method.Invoke(this, new object[] { modelBuilder });
             }
 
+            modelBuilder.ApplyConfiguration(new TenantMap());
             modelBuilder.ApplyConfiguration(new ApplicationUserClaimMap());
             modelBuilder.ApplyConfiguration(new ApplicationUserMap());
-            modelBuilder.ApplyConfiguration(new ApplicationRoleMap());
             modelBuilder.ApplyConfiguration(new ApplicationUserRoleMap());
+            modelBuilder.ApplyConfiguration(new ApplicationGroupMap());
+            modelBuilder.ApplyConfiguration(new ApplicationRoleGroupMap());
+            modelBuilder.ApplyConfiguration(new ApplicationUserGroupMap());
+            modelBuilder.ApplyConfiguration(new VerticalNavItemMap());
             modelBuilder.ApplyConfiguration(new TenantMap());
             modelBuilder.ApplyConfiguration(new ApplicationNotificationMap());
         }
