@@ -3,6 +3,9 @@ using Sagep.Infra.Data.UoW;
 using Sagep.Domain.Interfaces;
 using Sagep.Infra.CrossCutting.Identity.Services;
 using Sagep.Infra.Data.Services;
+using Sagep.Infra.Data.Repository;
+using Sagep.Application.Interfaces;
+using Sagep.Application.AppServices;
 
 namespace Sagep.Infra.CrossCutting.IoC
 {
@@ -10,11 +13,18 @@ namespace Sagep.Infra.CrossCutting.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            // AppServices
+
+            // Services
+
+            // Repositories
+
             // Infra - Data
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITenantRepository, TenantRepository>();
 
             // Application
-            
+            services.AddScoped<INavigationAppService, NavigationAppService>();
 
             services.AddScoped<UserResolverService>();
             services.AddTransient<ITenantProvider, TenantProvider>();
@@ -22,7 +32,7 @@ namespace Sagep.Infra.CrossCutting.IoC
             // Tipo	Mesma requisição	Requisições diferentes
 
             // Singleton	Mesma instância	Mesma instância
-            // Scoped	Mesma instância	Nova instância
+            // Scoped	    Mesma instância	Nova instância
             // Transient	Nova instância	Nova instância
             
             // Singleton: é criada uma única instância para todas requisições. Em outras palavras, é criada uma instância a primeira vez que é solicitada e todas as vezes seguintes a mesma instância é usada (design patter singleton);

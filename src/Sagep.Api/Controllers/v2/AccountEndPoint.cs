@@ -175,18 +175,19 @@ namespace Sagep.Api.Controllers.v2
         public async Task<IActionResult> MeAsync()
         {
             #region Token resolve
-            String token;
+            String? token;
             try
             {
-                token = HttpContext.Request.Headers["Authorization"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    AddError("Não foi possível obter o token de authorização. Tente novamente, caso persista acione a equipe de suporte.");
-                    return CustomResponse(400);
-                }
-                token = token.Replace("Bearer ", "");
+                token = HttpContext?.Request?.Headers["Authorization"] ?? string.Empty;
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
+
+            if (string.IsNullOrEmpty(token))
+            {
+                AddError("Não foi possível obter o token de authorização. Tente novamente, caso persista acione a equipe de suporte.");
+                return CustomResponse(400);
+            }
+            token = token.Replace("Bearer ", "");
 
             var pureToken = token;
             var handler = new JwtSecurityTokenHandler();
@@ -199,14 +200,15 @@ namespace Sagep.Api.Controllers.v2
             #endregion
 
             #region Get user data            
-            String userId;
+            String? userId;
             try
             {
-                userId = jwtSecurityToken.Payload["nameid"].ToString();
-                if (string.IsNullOrEmpty(userId))
-                    return CustomResponse(400, new { message = "Não foi possível obter o id do usuário. Tente novamente, caso persista acione a equipe de suporte." });
+                userId = jwtSecurityToken?.Payload["nameid"]?.ToString() ?? string.Empty;
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
+
+            if (string.IsNullOrEmpty(userId))
+                return CustomResponse(400, new { message = "Não foi possível obter o id do usuário. Tente novamente, caso persista acione a equipe de suporte." });
 
             var user = new ApplicationUser();
             try
@@ -222,7 +224,7 @@ namespace Sagep.Api.Controllers.v2
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
 
             if (user == null)
-                    return CustomResponse(404, new { message = "Nenhum registro encontrado." });
+                return CustomResponse(404, new { message = "Nenhum registro encontrado." });
             #endregion
 
             #region Generals validations

@@ -1,12 +1,5 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Configuration;
 using Sagep.Domain.Interfaces;
 using Sagep.Infra.Data.Extensions;
-using Sagep.Infra.Data.Repository;
 
 namespace SigespWeb.Api.Middlewares
 {
@@ -24,11 +17,11 @@ namespace SigespWeb.Api.Middlewares
                                  IHttpContextAccessor httpContextAccessor,
                                  ITenantRepository _tenantRepository)
         {
-            string tenantIdentifier = context.Session.GetString("TenantId");
+            string tenantIdentifier = context?.Session?.GetString("TenantId") ?? string.Empty;
             Console.WriteLine($"?Identifier é => {tenantIdentifier}");
             if (string.IsNullOrEmpty(tenantIdentifier))
             {
-                var apiKey = context.Request.Headers["X-Api-Key"].FirstOrDefault();
+                var apiKey = context?.Request?.Headers["X-Api-Key"].FirstOrDefault() ?? string.Empty;
                 if (!string.IsNullOrEmpty(apiKey)) 
                 {
                     Guid apiKeyGuid;
@@ -41,12 +34,13 @@ namespace SigespWeb.Api.Middlewares
                         {
                             var tenantIdNew = StringHelpers
                                                 .ExtractTenantId(tenantId);
-                            context.Session.SetString("TenantId", tenantIdNew.ToString());
+                            context?.Session.SetString("TenantId", tenantIdNew?.ToString() ?? string.Empty);
                         }
                     }
                 }
             }
-            await next.Invoke(context);
+
+            if (context != null) await next.Invoke(context);
         }
     }
 }

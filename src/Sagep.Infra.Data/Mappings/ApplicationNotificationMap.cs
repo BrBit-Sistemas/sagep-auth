@@ -56,7 +56,7 @@ namespace Sagep.Infra.Data.Mappings
 
             builder
                 .Property(c => c.TenantId)
-                .HasDefaultValue(new Guid("206c645a-2966-4ad9-19a3-dced7c201bc4"));
+                .IsRequired();
         }
     }
 }

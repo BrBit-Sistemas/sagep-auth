@@ -9,7 +9,7 @@ namespace Sagep.Domain.Models
         public ApplicationNotification(NotificationScopeTypeEnum scope, 
                                         string senderUser, 
                                         bool isRead, string messageTitle,
-                                        string messageBody, DateTime messageDate)
+                                        string messageBody, DateTimeOffset messageDate)
         {
             Scope = scope;
             SenderUser = senderUser;
@@ -29,7 +29,7 @@ namespace Sagep.Domain.Models
         public string MessageBody { get; set; }
         public string MessageLabel { get; set; }
         public string MessageLabelColor { get; set; }
-        public DateTime MessageDate { get; set; }
+        public DateTimeOffset MessageDate { get; set; }
 
 
         public Tenant Tenant { get; set; }

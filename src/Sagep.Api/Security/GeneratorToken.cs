@@ -22,7 +22,7 @@ namespace SigespWeb.Api.Security
                 {
                     List<Claim> claims = new List<Claim>();
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, appUser.Id));
-                    claims.Add(new Claim(ClaimTypes.Name, appUser?.UserName));
+                    claims.Add(new Claim(ClaimTypes.Name, appUser?.UserName ?? string.Empty));
                     
                     // ** Implementar as entidades de grupo de usuário, e que mais
                     // ** for necessário para realizar a implementação abaixo

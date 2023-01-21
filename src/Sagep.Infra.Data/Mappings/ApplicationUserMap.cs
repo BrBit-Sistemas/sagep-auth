@@ -48,7 +48,8 @@ namespace Sagep.Infra.Data.Mappings
                     NormalizedUserName = "ALAN.REZENDEEE@HOTMAIL.COM",
                     ConcurrencyStamp = "ca431822-360a-4ee6-b978-66564d429fc7",
                     SecurityStamp = "c9514850-61dd-4cc1-b909-88b79b035643",
-                    PasswordHash = "AQAAAAEAACcQAAAAEFGbgHKOKiDDs5fvXN8kHviorntHToMKurnVJNmsFQNInxhQOyZTwJ2w0SpbyCdZbA=="
+                    PasswordHash = "AQAAAAEAACcQAAAAEFGbgHKOKiDDs5fvXN8kHviorntHToMKurnVJNmsFQNInxhQOyZTwJ2w0SpbyCdZbA==",
+                    TenantId = null
                 }
             );
         }

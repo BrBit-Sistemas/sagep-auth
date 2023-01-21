@@ -36,9 +36,12 @@ namespace BoxBack.WebApi.EndPoints
             String userId;
             try
             {  
-                userId = _httpCA.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                userId = _httpCA?.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
+
+            if (string.IsNullOrEmpty(userId))
+                throw new ArgumentNullException(nameof(userId));
             #endregion
 
             IEnumerable<VerticalNavItemViewModel> result = new List<VerticalNavItemViewModel>();

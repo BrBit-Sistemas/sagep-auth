@@ -15,6 +15,7 @@ using System.Reflection;
 using System.IO;
 using Microsoft.Extensions.DependencyModel;
 using Sagep.Infra.Data.Services;
+using BoxBack.Infra.Data.Mappings;
 
 namespace Sagep.Infra.Data.Context
 {
@@ -62,14 +63,14 @@ namespace Sagep.Infra.Data.Context
             }
 
             modelBuilder.ApplyConfiguration(new TenantMap());
-            modelBuilder.ApplyConfiguration(new ApplicationUserClaimMap());
             modelBuilder.ApplyConfiguration(new ApplicationUserMap());
+            modelBuilder.ApplyConfiguration(new ApplicationUserClaimMap());
+            modelBuilder.ApplyConfiguration(new ApplicationRoleMap());
             modelBuilder.ApplyConfiguration(new ApplicationUserRoleMap());
             modelBuilder.ApplyConfiguration(new ApplicationGroupMap());
             modelBuilder.ApplyConfiguration(new ApplicationRoleGroupMap());
             modelBuilder.ApplyConfiguration(new ApplicationUserGroupMap());
             modelBuilder.ApplyConfiguration(new VerticalNavItemMap());
-            modelBuilder.ApplyConfiguration(new TenantMap());
             modelBuilder.ApplyConfiguration(new ApplicationNotificationMap());
         }
 

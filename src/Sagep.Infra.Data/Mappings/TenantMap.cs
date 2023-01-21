@@ -89,13 +89,13 @@ namespace Sagep.Infra.Data.Mappings
             builder.HasData(
                 new Tenant
                 {
-                    Id = new Guid("206c645a-2966-4ad9-19a3-dced7c201bc4"),
+                    Id = Guid.Parse("206c645a-2966-4ad9-19a3-dced7c201bc4"),
                     IsDeleted = false,
-                    CreatedAt = DateTime.Now,
-                    CreatedBy = new Guid("8e445865-a24d-4543-a6c6-9443d048cdb9"),
-                    UpdatedAt = DateTime.Now,
-                    UpdatedBy = new Guid("8e445865-a24d-4543-a6c6-9443d048cdb9"),
-                    ApiKey = new Guid("06b5fb02-57cb-126b-3ab2-a05f805f1e97"),
+                    CreatedAt = DateTimeOffset.UtcNow,
+                    CreatedBy = Guid.Parse("8e445865-a24d-4543-a6c6-9443d048cdb9"),
+                    UpdatedAt = DateTimeOffset.UtcNow,
+                    UpdatedBy = Guid.Parse("8e445865-a24d-4543-a6c6-9443d048cdb9"),
+                    ApiKey = Guid.Parse("06b5fb02-57cb-126b-3ab2-a05f805f1e97"),
                     Nome = "Tenância Presídio Regional de Criciúma",
                     NomeExibicao = "PRESÍDIO REGIONAL CRICIÚMA"         
                 }

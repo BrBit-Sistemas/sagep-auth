@@ -48,7 +48,7 @@ namespace Sagep.Domain.Models
 
         // Relationships
         [ForeignKey("TenantId")]
-        public Guid TenantId { get; set; }
+        public Guid? TenantId { get; set; }
         public Tenant Tenant { get; set; }
 
         public virtual ICollection<ApplicationUserClaim> ApplicationUserClaims { get; set; }

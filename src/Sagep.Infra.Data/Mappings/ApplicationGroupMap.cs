@@ -39,15 +39,15 @@ namespace Sagep.Infra.Data.Mappings
             builder.HasData(
                 new ApplicationGroup
                 {
-                    Id = new Guid("23e63d9c-283b-496b-b7d8-7dac2ef7a822"), // primary key
+                    Id = Guid.Parse("23e63d9c-283b-496b-b7d8-7dac2ef7a822"), // primary key
                     IsDeleted = false,
-                    CreatedAt = DateTime.Now,
-                    CreatedBy = new Guid("8e445865-a24d-4543-a6c6-9443d048cdb9"),
-                    UpdatedAt = DateTime.Now,
-                    UpdatedBy = new Guid("8e445865-a24d-4543-a6c6-9443d048cdb9"),
+                    CreatedAt = DateTimeOffset.UtcNow,
+                    CreatedBy = Guid.Parse("8e445865-a24d-4543-a6c6-9443d048cdb9"),
+                    UpdatedAt = DateTimeOffset.UtcNow,
+                    UpdatedBy = Guid.Parse("8e445865-a24d-4543-a6c6-9443d048cdb9"),
                     Name = "Master",
                     UniqueKey = "ors0eAr4DPkvrwhy5gVnQAqRDnJUO43j9HzbkPyZ/7Q=", // generated with secret from name
-                    TenantId = new Guid("206c645a-2966-4ad9-19a3-dced7c201bc4")
+                    TenantId = Guid.Parse("206c645a-2966-4ad9-19a3-dced7c201bc4")
                 }
             );
         }
