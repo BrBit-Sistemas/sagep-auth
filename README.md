@@ -1,2 +1,2 @@
 # sagep-webapi
-Nova webapi sagep - .net7.0
+Nova webapi Sagep - .net7.0
