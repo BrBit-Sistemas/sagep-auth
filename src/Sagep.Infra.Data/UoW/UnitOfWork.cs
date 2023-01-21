@@ -8,9 +8,9 @@ namespace Sagep.Infra.Data.UoW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly SigespDbContext _context;
+        private readonly SagepAppDbContext _context;
 
-        public UnitOfWork(SigespDbContext context)
+        public UnitOfWork(SagepAppDbContext context)
         {
             _context = context;
         }

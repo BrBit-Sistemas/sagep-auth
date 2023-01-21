@@ -122,7 +122,7 @@ namespace Sagep.Infra.Data.Extensions.DataTable
                         query = query.Where(ExpressionUtils.BuildPredicate<T>(column.Name, "Contains", request.Search.Value));
                     }
                 }
-                catch (Exception ex) { throw ex; };
+                catch { throw; }
             }
 
             return query;

@@ -27,7 +27,5 @@ namespace Sagep.Application.ViewModels
         public List<string> ApplicationUserRoles { get; set; }
         
         public Tenant Tenant { get; set; }
-
-        public virtual ContaUsuarioViewModel ContaUsuarioViewModel { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace SigespWeb.Api.ProgramConfigurations
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
-            services.AddDbContext<SigespDbContext>(options => {
+            services.AddDbContext<SagepAppDbContext>(options => {
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
                 
                 if (!env.IsProduction())

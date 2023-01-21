@@ -1,10 +1,7 @@
-using System.Reflection.Emit;
-using System.Collections.Immutable;
 using System;
 using Sagep.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Sagep.Domain.Enums;
 
 namespace Sagep.Infra.Data.Mappings
 {
@@ -86,11 +83,6 @@ namespace Sagep.Infra.Data.Mappings
             builder.Property(c => c.EmailPrincipal)
                 .IsRequired(false);
 
-            builder
-                .HasMany(c => c.Detentos)
-                .WithOne(c => c.Tenant)
-                .OnDelete(DeleteBehavior.NoAction);
- 
             builder.HasQueryFilter(p => !p.IsDeleted);
 
             //Seed for dev

@@ -65,23 +65,7 @@ namespace Sagep.Domain.Models
         public string TelefoneNumero { get; set; }
         public string EmailPrincipal { get; set; }
 
-        public ICollection<Detento> Detentos { get; set; }
-        public ICollection<Livro> Livros { get; set; }
-        public ICollection<Aluno> Alunos { get; set; }
-        public ICollection<AlunoEja> AlunosEja { get; set; }
-        public ICollection<AlunoLeitor> AlunosLeitores { get; set; }
-        public ICollection<AlunoLeitura> AlunosLeituras { get; set; }
-        public ICollection<AlunoLeituraCronograma> AlunosLeiturasCronogramas { get; set; }
-        public ICollection<Professor> Professores { get; set; }
         public ICollection<ApplicationUser> ApplicationUsers { get; set; }
-        public ICollection<Edi> Edis { get; set; }
-        public ICollection<EdiLog> EdisLogs { get; set; }
-        public ICollection<ServidorEstado> ServidoresEstado { get; set; }
-        public ICollection<ServidorEstadoReforcoRegra> ServidoEstadoReforcoRegras { get; set; }
         public ICollection<ApplicationNotification> ApplicationNotifications { get; set; }
-        public ICollection<FormularioLeituraDicaEscrita> FormularioLeituraDicasEscrita { get; set; }
-        public ICollection<FormularioLeituraPerguntaGrupo> FormularioLeituraPerguntaGrupos { get; set; }
-        public ICollection<InfracaoAdministrativaDisciplinar> InfracoesAdministrativasDisciplinares { get; set; }
-        public ICollection<AndamentoPenal> AndamentoPenal { get; set; }
     }
 }

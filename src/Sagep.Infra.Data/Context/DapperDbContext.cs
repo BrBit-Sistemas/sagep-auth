@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
-using Sagep.Domain.Models;
 using Dapper;
 
 namespace Sagep.Infra.Data.Context
@@ -16,7 +14,7 @@ namespace Sagep.Infra.Data.Context
     public static class DapperDbContext
     {
         public static async Task<IEnumerable<T>> QueryAsync<T>(
-            this SigespDbContext context,
+            this SagepAppDbContext context,
             CancellationToken ct,
             string text,
             object parameters = null,
@@ -38,7 +36,7 @@ namespace Sagep.Infra.Data.Context
         }
 
         public static T QueryFirst<T>(
-            this SigespDbContext context,
+            this SagepAppDbContext context,
             CancellationToken ct,
             string text,
             object parameters = null,
@@ -60,7 +58,7 @@ namespace Sagep.Infra.Data.Context
         }
 
         public static async Task<int> ExecuteAsync(
-            this SigespDbContext context,
+            this SagepAppDbContext context,
             CancellationToken ct,
             string text,
             object parameters = null,
@@ -82,7 +80,7 @@ namespace Sagep.Infra.Data.Context
         }
 
         public static int Execute(
-            this SigespDbContext context,
+            this SagepAppDbContext context,
             CancellationToken ct,
             string text,
             object parameters = null,
@@ -109,7 +107,7 @@ namespace Sagep.Infra.Data.Context
         private readonly ILogger<DapperEFCoreCommand> _logger;
 
         public DapperEFCoreCommand(
-            SigespDbContext context,
+            SagepAppDbContext context,
             string text,
             object parameters,
             int? timeout,

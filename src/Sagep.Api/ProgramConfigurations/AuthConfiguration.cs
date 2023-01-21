@@ -16,7 +16,7 @@ namespace SigespWeb.Api.ProgramConfigurations
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = false)
                     .AddRoleManager<RoleManager<ApplicationRole>>()
-                    .AddEntityFrameworkStores<SigespDbContext>()
+                    .AddEntityFrameworkStores<SagepAppDbContext>()
                     .AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>

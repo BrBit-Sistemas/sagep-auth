@@ -1,5 +1,3 @@
-using System.ComponentModel;
-using System.Reflection.Emit;
 using System;
 using System.Linq;
 using Sagep.Domain.Interfaces;
@@ -7,16 +5,15 @@ using Sagep.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Sagep.Infra.Data.Extensions;
 
 namespace Sagep.Infra.Data.Repository
 {
     public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly SigespDbContext Db;
+        protected readonly SagepAppDbContext Db;
         protected readonly DbSet<TEntity> DbSet;
 
-        public Repository(SigespDbContext context)
+        public Repository(SagepAppDbContext context)
         {
             Db = context;
             DbSet = Db.Set<TEntity>();

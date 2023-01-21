@@ -3,12 +3,10 @@ using System.Linq;
 using System.Data;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Sagep.Domain.Interfaces;
 using Sagep.Domain.Models;
 using Sagep.Infra.Data.Context;
-using Sagep.Infra.Data.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace Sagep.Infra.Data.Repository
@@ -19,7 +17,7 @@ namespace Sagep.Infra.Data.Repository
         private ISession _session => _httpContextAccessor.HttpContext.Session;
         private readonly IConfiguration _configuration;
 
-        public TenantRepository(SigespDbContext context,
+        public TenantRepository(SagepAppDbContext context,
                                 IConfiguration configuration,
                                 IHttpContextAccessor httpContextAccessor)
         : base(context)
