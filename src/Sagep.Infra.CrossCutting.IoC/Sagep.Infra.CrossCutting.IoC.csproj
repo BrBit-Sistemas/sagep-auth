@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sagep.Application\Sagep.Application.csproj" />
+    <ProjectReference Include="..\Sagep.Domain\Sagep.Domain.csproj" />
+    <ProjectReference Include="..\Sagep.Infra.Data\Sagep.Infra.Data.csproj" />
+    <ProjectReference Include="..\Sagep.Infra.CrossCutting.Identity\Sagep.Infra.CrossCutting.Identity.csproj" />
+  </ItemGroup>
+
+</Project>

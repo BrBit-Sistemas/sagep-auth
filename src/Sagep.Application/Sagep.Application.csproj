@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sagep.Domain\Sagep.Domain.csproj" />
+    <ProjectReference Include="..\Sagep.Infra.Data\Sagep.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
