@@ -16,6 +16,7 @@ using System.IO;
 using Microsoft.Extensions.DependencyModel;
 using Sagep.Infra.Data.Services;
 using BoxBack.Infra.Data.Mappings;
+using Sagep.Domain.Security;
 
 namespace Sagep.Infra.Data.Context
 {
@@ -25,16 +26,16 @@ namespace Sagep.Infra.Data.Context
     {
         public static Guid Tenant1Id = Guid.Parse("51aab199-1482-4f0d-8ff1-5ca0e7bc525a");
         
-        private readonly UserResolverService _userResolverService;
         private readonly ITenantProvider _tenantProvider;
+        private readonly IUserProvider _userProvider;
 
         public SagepAppDbContext(DbContextOptions<SagepAppDbContext> options, 
-                                UserResolverService userResolverService,
-                                ITenantProvider tenantProvider)
+                                ITenantProvider tenantProvider,
+                                IUserProvider userProvider)
             : base(options)
         {
-            _userResolverService = userResolverService;
             _tenantProvider = tenantProvider;
+            _userProvider = userProvider;
         }
 
         public DbSet<Tenant> Tenants { get; set; }
@@ -45,7 +46,7 @@ namespace Sagep.Infra.Data.Context
         public DbSet<VerticalNavItem> VerticalNavItems { get; set; }
         public DbSet<ApplicationNotification> ApplicationNotifications { get; set; }
 
-         protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             // NpgsqlConnection.GlobalTypeMapper.MapEnum<InstrumentoPrisaoTipoEnum>();
             // NpgsqlConnection.GlobalTypeMapper.MapComposite<InstrumentoPrisaoTipoEnum>();
@@ -197,7 +198,7 @@ namespace Sagep.Infra.Data.Context
                     || x.State == EntityState.Modified);
 
             // TODO: Get real current user id
-            var currentUserId = _userResolverService.GetUserId();
+            var currentUserId = _userProvider.GetGuidId();
 
             foreach (var entry in filtered)
             {

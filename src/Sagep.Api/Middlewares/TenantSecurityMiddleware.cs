@@ -1,4 +1,5 @@
 using Sagep.Domain.Interfaces;
+using Sagep.Domain.Security;
 using Sagep.Infra.Data.Extensions;
 
 namespace SigespWeb.Api.Middlewares
@@ -12,16 +13,20 @@ namespace SigespWeb.Api.Middlewares
             this.next = next;
         }
         
-        public async Task Invoke(HttpContext context,
-                                 IConfiguration configuration,
-                                 IHttpContextAccessor httpContextAccessor,
-                                 ITenantRepository _tenantRepository)
+        public async Task Invoke(HttpContext _httpContext,
+                                 ITenantRepository _tenantRepository,
+                                 ILogger<TenantSecurityMiddleware> _logger,
+                                 IUserProvider _userProvider)
         {
-            string tenantIdentifier = context?.Session?.GetString("TenantId") ?? string.Empty;
-            Console.WriteLine($"?Identifier é => {tenantIdentifier}");
+            string tenantIdentifier = _httpContext?.Session?.GetString("TenantId") ?? string.Empty;
+            string userId = _userProvider.GetId();
+
+            _logger.LogInformation($"UserId é => {userId}");
+            _logger.LogInformation($"Identifier é => {tenantIdentifier}");
+            
             if (string.IsNullOrEmpty(tenantIdentifier))
             {
-                var apiKey = context?.Request?.Headers["X-Api-Key"].FirstOrDefault() ?? string.Empty;
+                var apiKey = _httpContext?.Request?.Headers["X-Api-Key"].FirstOrDefault() ?? string.Empty;
                 if (!string.IsNullOrEmpty(apiKey)) 
                 {
                     Guid apiKeyGuid;
@@ -29,18 +34,20 @@ namespace SigespWeb.Api.Middlewares
                     {
                         string tenantId = await _tenantRepository
                                                         .GetTenantIdAsync(apiKeyGuid);
-                        Console.WriteLine($"ApiKey é => {tenantId}");
+
+                        _logger.LogInformation($"ApiKey é => {tenantIdentifier}");
+
                         if (!string.IsNullOrEmpty(tenantId))
                         {
                             var tenantIdNew = StringHelpers
                                                 .ExtractTenantId(tenantId);
-                            context?.Session.SetString("TenantId", tenantIdNew?.ToString() ?? string.Empty);
+                            _httpContext?.Session.SetString("TenantId", tenantIdNew?.ToString() ?? string.Empty);
                         }
                     }
                 }
             }
 
-            if (context != null) await next.Invoke(context);
+            if (_httpContext != null) await next.Invoke(_httpContext);
         }
     }
 }

@@ -7,6 +7,7 @@ using Sagep.Infra.Data.Repository;
 using Sagep.Application.Interfaces;
 using Sagep.Application.AppServices;
 using Sagep.Domain.Security;
+using Microsoft.AspNetCore.Http;
 
 namespace Sagep.Infra.CrossCutting.IoC
 {
@@ -29,11 +30,8 @@ namespace Sagep.Infra.CrossCutting.IoC
 
             // Providers
             services.AddTransient<ITenantProvider, TenantProvider>();
-            services.AddScoped<ITokenProvider, TokenProvider>();
-
-
-            services.AddScoped<UserResolverService>();
-            
+            services.AddTransient<IUserProvider, UserProvider>();
+            services.AddTransient<ITokenProvider, TokenProvider>();
 
             // Tipo	Mesma requisição	Requisições diferentes
 

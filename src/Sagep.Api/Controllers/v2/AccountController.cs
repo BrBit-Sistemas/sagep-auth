@@ -18,23 +18,29 @@ namespace Sagep.Api.Controllers.v2
     [Route("api/v{version:apiVersion}/account")]
     public class AccountController : ApiController
     {
+        private readonly ILogger<AccountController> _logger;
         private readonly ITokenProvider _tokenProvider;
         private readonly SagepAppDbContext _context;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
+        private readonly IUserProvider _userProvider;
 
-        public AccountController(ITokenProvider tokenProvider,
+        public AccountController(ILogger<AccountController> logger,
+                                ITokenProvider tokenProvider,
                                 SagepAppDbContext context,
                                 SignInManager<ApplicationUser> signInManager,
                                 UserManager<ApplicationUser> userManager,
-                                IMapper mapper)
+                                IMapper mapper,
+                                IUserProvider userProvider)
         {
+            _logger = logger;
             _tokenProvider = tokenProvider;
             _context = context;
             _signInManager = signInManager;
             _userManager = userManager;
             _mapper = mapper;
+            _userProvider = userProvider;
         }
 
         /// <summary>
@@ -60,7 +66,6 @@ namespace Sagep.Api.Controllers.v2
             var sigIn = new Microsoft.AspNetCore.Identity.SignInResult();
             try
             {
-                var a = await _signInManager.UserManager.FindByIdAsync("8e445865-a24d-4543-a6c6-9443d048cdb9");
                 sigIn = await _signInManager
                                 .PasswordSignInAsync(authenticateViewModel.Email,
                                                         authenticateViewModel.Password,
@@ -69,15 +74,23 @@ namespace Sagep.Api.Controllers.v2
                 #region Checks
                 if (sigIn.IsLockedOut)
                 {
+                    _logger.LogWarning("Usuário bloqueado.");
+
                     AddError("Usuário bloqueado. \nAguarde 1 minuto e tente novamente. Caso persista, solicite o desbloqueio ao administrador do sistema.");
                     return CustomResponse(400);
                 } else if (sigIn.IsNotAllowed) {
+                    _logger.LogWarning("E-mail não confirmado.");
+
                     AddError("E-mail não confirmado. Check seu e-mai de confirmação, caso o problema persista, solicite novamente um e-mail de verificação.");
                     return CustomResponse(400);
                 } else if (sigIn.RequiresTwoFactor) {
+                    _logger.LogWarning("Você ativou a autenticação de dois fatores.");
+
                     AddError("Você ativou a autenticação de dois fatores. Portanto, faça login nesta condição.");
                     return CustomResponse(400);
                 } else if (!sigIn.Succeeded) {
+                    _logger.LogWarning("Usuário ou senha inválidos.");
+
                     AddError("Usuário ou senha inválidos.");
                     return CustomResponse(400);
                 }
@@ -98,10 +111,18 @@ namespace Sagep.Api.Controllers.v2
                                     .ThenInclude(x => x.ApplicationRole)
                                     .FirstOrDefaultAsync(x => x.Email == authenticateViewModel.Email);
             }
-            catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
+            catch (Exception ex) 
+            { 
+                _logger.LogWarning(ex.Message);
+
+                AddErrorToTryCatch(ex);
+                return CustomResponse(500); 
+            }
 
             if (user == null)
             {
+                _logger.LogWarning("Usuário não encontrado.");
+
                 AddError("Usuário não encontrado.");
                 return CustomResponse(404);
             }
@@ -109,6 +130,8 @@ namespace Sagep.Api.Controllers.v2
             // check to user inactive
             if (user.Status == ApplicationUserStatusEnum.INACTIVE)
             {
+                _logger.LogWarning("Usuário inativo.");
+
                 AddError("Usuário inativo."+ "\nPara fazer login solicite ao administrador a ativação de seu usuário.");
                 return CustomResponse(400);
             }
@@ -116,6 +139,8 @@ namespace Sagep.Api.Controllers.v2
             // check to user pending active
             if (user.Status == ApplicationUserStatusEnum.PENDING)
             {
+                _logger.LogWarning("Usuário pendente de ativação.");
+
                 AddError("Usuário pendente de ativação."+ "\nPara fazer login solicite ao administrador a ativação de seu usuário.");
                 return CustomResponse(400);
             }
@@ -124,6 +149,8 @@ namespace Sagep.Api.Controllers.v2
             // check to groups inactives
             if (user.ApplicationUserGroups.Count(x => !x.ApplicationGroup.IsDeleted) <= 0)
             {
+                _logger.LogWarning("Usuário sem grupo ativo vinculado que permita acesso.");
+
                 AddError("Usuário sem grupo ativo vinculado que permita acesso.\nSolicite ao usuário master da sua empresa para vincular seu usuário a outro grupo ativo, ou ativar ao menos um grupo já vinculado ao seu usuário.");
                 return CustomResponse(400);
             }
@@ -147,6 +174,8 @@ namespace Sagep.Api.Controllers.v2
 
             if (string.IsNullOrEmpty(token))
             {
+                _logger.LogWarning("Problemas ao obter token.");
+
                 AddError("Problemas ao obter token. Tente novamente, persistindo o problema informe a equipe de suporte.");
                 return CustomResponse(400);
             } 
@@ -156,6 +185,7 @@ namespace Sagep.Api.Controllers.v2
             }
             
             #endregion
+
             return Ok(new { userData = userMapped });
         }
 
@@ -176,42 +206,18 @@ namespace Sagep.Api.Controllers.v2
         [HttpGet]
         public async Task<IActionResult> MeAsync()
         {
-            #region Token resolve
-            String? token;
+            #region UserId resolve
+            String userId = string.Empty;
             try
             {
-                token = HttpContext?.Request?.Headers["Authorization"] ?? string.Empty;
+                userId = _userProvider.GetId();
             }
-            catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
-
-            if (string.IsNullOrEmpty(token))
-            {
-                AddError("Não foi possível obter o token. \nTente novamente, caso o problema persista acione a equipe de suporte.");
-                return CustomResponse(400);
-            }
-
-            token = token.Replace("Bearer ", "");
-
-            var pureToken = token;
-            var handler = new JwtSecurityTokenHandler();
-            var jwtSecurityToken = new JwtSecurityToken();
-            try
-            {
-                jwtSecurityToken = handler.ReadJwtToken(token);
-            }
-            catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
-            #endregion
-
-            #region Get user data            
-            String? userId;
-            try
-            {
-                userId = jwtSecurityToken?.Payload["nameid"]?.ToString() ?? string.Empty;
-            }
-            catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
-
+            catch { throw; }
+            
             if (string.IsNullOrEmpty(userId))
-                return CustomResponse(400, new { message = "Não foi possível obter o id do usuário. Tente novamente, caso persista acione a equipe de suporte." });
+            {
+                return CustomResponse(400, new { message = "Não foi possível obter o id do usuário. \nTente novamente, caso o problema persista acione a equipe de suporte." });
+            }
 
             var user = new ApplicationUser();
             try
@@ -244,7 +250,7 @@ namespace Sagep.Api.Controllers.v2
             try
             {
                 userMapped = _mapper.Map<ApplicationUserViewModel>(user);
-                userMapped.AccessToken = pureToken;
+                userMapped.AccessToken = _tokenProvider.GetTokenFromHttpContext();
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
 

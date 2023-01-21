@@ -6,16 +6,30 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace Sagep.Domain.Security
 {
     public interface ITokenProvider
     {
         string GetToken(ApplicationUser appUser);
+        string GetTokenFromHttpContext();
+        string GetUserIdFromToken();
     }
 
     public class TokenProvider : ITokenProvider
     {
+        private readonly IHttpContextAccessor _httpContextAcessor;
+        private readonly ILogger<TokenProvider> _logger;
+
+        public TokenProvider(IHttpContextAccessor httpContextAcessor,
+                             ILogger<TokenProvider> logger)
+        {
+            _httpContextAcessor = httpContextAcessor;
+            _logger = logger;
+        }
+
         public string GetToken(ApplicationUser appUser)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -64,6 +78,50 @@ namespace Sagep.Domain.Security
             catch { throw; }
 
             return tokenResult;
+        }
+        public string GetTokenFromHttpContext()
+        {
+            String token = string.Empty;
+            try
+            {
+                token = _httpContextAcessor?.HttpContext?.Request?.Headers["Authorization"];
+            }
+            catch { throw; }
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                token = token?.Replace("Bearer ", "");
+            }
+
+            return token;
+        }
+        public string GetUserIdFromToken()
+        {
+            string token = GetTokenFromHttpContext();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                _logger.LogError($"Não foi possível obter Token: {token}");
+                throw new ArgumentException(nameof(token));
+            }
+
+            var pureToken = token;
+            var handler = new JwtSecurityTokenHandler();
+            var jwtSecurityToken = new JwtSecurityToken();
+            try
+            {
+                jwtSecurityToken = handler.ReadJwtToken(token);
+            }
+            catch { throw; }
+
+            String userId = string.Empty;
+            try
+            {
+                userId = jwtSecurityToken?.Payload["nameid"]?.ToString() ?? string.Empty;
+            }
+            catch { throw; }
+
+            return userId;
         }
     }
 }

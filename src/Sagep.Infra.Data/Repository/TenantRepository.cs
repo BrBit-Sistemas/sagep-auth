@@ -31,9 +31,9 @@ namespace Sagep.Infra.Data.Repository
             try 
             {
                 var tenantId = await DbSet
-                                    .AsNoTracking()
-                                    .Where(x => x.ApiKey == apiKey)
-                                    .FirstOrDefaultAsync();
+                                        .AsNoTracking()
+                                        .Where(x => x.ApiKey == apiKey)
+                                        .FirstOrDefaultAsync();
                 return tenantId.ToString();
             } 
             catch { throw; }

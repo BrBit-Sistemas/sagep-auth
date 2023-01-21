@@ -3,6 +3,7 @@ using Sagep.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.AspNetCore.Identity;
+using Sagep.Domain.Enums;
 
 namespace Sagep.Infra.Data.Mappings
 {
@@ -44,6 +45,7 @@ namespace Sagep.Infra.Data.Mappings
                 new ApplicationUser
                 {
                     Id = "8e445865-a24d-4543-a6c6-9443d048cdb9", // primary key
+                    Genero = SexoEnum.MALE,
                     FullName = "Alan Rezende",
                     UserName = "alan.rezendeeee@hotmail.com",
                     NormalizedUserName = "ALAN.REZENDEEEE@HOTMAIL.COM",

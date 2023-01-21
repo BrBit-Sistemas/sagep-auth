@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Sagep.Api.Controllers.v2;
 using Sagep.Application.Interfaces;
 using Sagep.Application.ViewModels;
+using Sagep.Domain.Security;
 
 namespace BoxBack.WebApi.EndPoints
 {
@@ -13,11 +14,14 @@ namespace BoxBack.WebApi.EndPoints
     public class NavigationController : ApiController
     {
         private readonly INavigationAppService _navigationManager;
-        private readonly IHttpContextAccessor _httpCA;
-        public NavigationController(INavigationAppService navigationManager, IHttpContextAccessor httpCA) 
+        private readonly IUserProvider _userProvider;
+
+
+        public NavigationController(INavigationAppService navigationManager,
+                                    IUserProvider userProvider) 
         { 
             _navigationManager = navigationManager;
-            _httpCA = httpCA;
+            _userProvider = userProvider;
         }
 
         /// <summary>
@@ -40,8 +44,8 @@ namespace BoxBack.WebApi.EndPoints
             #region User resolve
             String userId;
             try
-            {  
-                userId = _httpCA?.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
+            {
+                userId = _userProvider.GetId();
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
 
