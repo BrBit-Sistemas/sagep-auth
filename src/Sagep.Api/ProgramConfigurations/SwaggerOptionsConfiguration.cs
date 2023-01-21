@@ -50,18 +50,18 @@ namespace SigespWeb.Api.ProgramConfigurations
             var info = new OpenApiInfo()
             {
                 Version = desc.ApiVersion.ToString(),
-                Title = "SigespWeb - Web API",
-                Description = "SigespWeb WebApi",
-                TermsOfService = new Uri("https://www.sigespweb.inf.br/terms-service"),
+                Title = "Sagep - Web API",
+                Description = "Sagep WebApi",
+                TermsOfService = new Uri("https://www.sagep.com.br/terms-service"),
                 Contact = new OpenApiContact
                 {
-                    Name = "SigespWeb Tecnologia",
-                    Url = new Uri("https://www.sigespweb.inf.br")
+                    Name = "Br Bit Sistemas",
+                    Url = new Uri("https://www.brbit.com.br")
                 },
                 License = new OpenApiLicense
                 {
-                    Name = "SigespWeb Tecnologia License",
-                    Url = new Uri("https://www.sigespweb.inf.br/license")
+                    Name = "Br Bit Sistemas License",
+                    Url = new Uri("https://www.sagep.inf.br/license")
                 }
             };
 

@@ -4,12 +4,13 @@ using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using System.IdentityModel.Tokens.Jwt;
-using SigespWeb.Api.Security;
 using Sagep.Domain.Models;
 using Sagep.Infra.Data.Context;
 using Sagep.Application.ViewModels;
 using Sagep.Domain.Enums;
 using Sagep.Api.Helpers;
+using Sagep.Domain.Security;
+using System.Security.Claims;
 
 namespace Sagep.Api.Controllers.v2
 {
@@ -18,19 +19,19 @@ namespace Sagep.Api.Controllers.v2
     [Route("api/v{version:apiVersion}/account")]
     public class AccountEndPoint : ApiController
     {
-        private readonly GeneratorToken _generatorToken;
+        private readonly ITokenProvider _tokenProvider;
         private readonly SagepAppDbContext _context;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
 
-        public AccountEndPoint(GeneratorToken generatorToken,
+        public AccountEndPoint(ITokenProvider tokenProvider,
                                SagepAppDbContext context,
                                SignInManager<ApplicationUser> signInManager,
                                UserManager<ApplicationUser> userManager,
                                IMapper mapper)
         {
-            _generatorToken = generatorToken;
+            _tokenProvider = tokenProvider;
             _context = context;
             _signInManager = signInManager;
             _userManager = userManager;
@@ -60,11 +61,12 @@ namespace Sagep.Api.Controllers.v2
             var sigIn = new Microsoft.AspNetCore.Identity.SignInResult();
             try
             {
-                    sigIn = await _signInManager
-                                    .PasswordSignInAsync(authenticateViewModel.Email,
-                                                            authenticateViewModel.Password,
-                                                            authenticateViewModel.RememberMe,
-                                                            lockoutOnFailure: true);
+                var a = await _signInManager.UserManager.FindByIdAsync("8e445865-a24d-4543-a6c6-9443d048cdb9");
+                sigIn = await _signInManager
+                                .PasswordSignInAsync(authenticateViewModel.Email,
+                                                        authenticateViewModel.Password,
+                                                        authenticateViewModel.RememberMe,
+                                                        lockoutOnFailure: true);
                 #region Checks
                 if (sigIn.IsLockedOut)
                 {
@@ -140,7 +142,7 @@ namespace Sagep.Api.Controllers.v2
             String token;
             try
             {
-                token = _generatorToken.GetToken(user);
+                token = _tokenProvider.GetToken(user);
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
 

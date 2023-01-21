@@ -1,11 +1,3 @@
-using System.Text;
-using SigespWeb.Api.Security;
-using Sagep.Domain.Models;
-using Sagep.Infra.Data.Context;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-
 namespace SigespWeb.Api.ProgramConfigurations
 {
     public static class SessionServiceTenantConfiguration

@@ -1,14 +1,19 @@
 using System.Text;
-using System.Linq;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
 using Sagep.Domain.Models;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System;
 
-namespace SigespWeb.Api.Security
+namespace Sagep.Domain.Security
 {
-    public class GeneratorToken
+    public interface ITokenProvider
+    {
+        string GetToken(ApplicationUser appUser);
+    }
+
+    public class TokenProvider : ITokenProvider
     {
         public string GetToken(ApplicationUser appUser)
         {

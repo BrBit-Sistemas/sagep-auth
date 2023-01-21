@@ -1,6 +1,11 @@
 using SigespWeb.Api.ProgramConfigurations;
 using SigespWeb.Api.Middlewares;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Sagep.Api.Extensions;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +17,13 @@ builder.Configuration
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+                                .AddJsonOptions(options =>
+                                {
+                                    options.JsonSerializerOptions.WriteIndented = true;
+                                    options.JsonSerializerOptions.Converters.Add(new CustomJsonConverterForTypeExtensions());
+                                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                                });
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -49,6 +60,22 @@ builder.Services.AddDistributedMemoryCache();
 // ----- Session to middleware of tenancy -----
 builder.Services.AddSessionServiceTenantConfiguration();
 
+// ----- Log services -----
+builder.Services.AddLogging(loggingBuilder => {
+                                loggingBuilder.AddConsole()
+                                    .AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Information);
+                                loggingBuilder.AddDebug();
+                            });
+
+// ----- Add filter Authorization -----
+builder.Services.AddMvc(config =>
+                        {
+                            var policy = new AuthorizationPolicyBuilder()
+                                            .RequireAuthenticatedUser()
+                                            .Build();
+                            config.Filters.Add(new AuthorizeFilter(policy));
+                        });
+
 var app = builder.Build();
 
 var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
@@ -68,6 +95,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();

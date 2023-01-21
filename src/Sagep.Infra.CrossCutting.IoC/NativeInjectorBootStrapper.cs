@@ -6,6 +6,7 @@ using Sagep.Infra.Data.Services;
 using Sagep.Infra.Data.Repository;
 using Sagep.Application.Interfaces;
 using Sagep.Application.AppServices;
+using Sagep.Domain.Security;
 
 namespace Sagep.Infra.CrossCutting.IoC
 {
@@ -13,7 +14,7 @@ namespace Sagep.Infra.CrossCutting.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            // AppServices
+            // AppServices            
 
             // Services
 
@@ -26,8 +27,13 @@ namespace Sagep.Infra.CrossCutting.IoC
             // Application
             services.AddScoped<INavigationAppService, NavigationAppService>();
 
-            services.AddScoped<UserResolverService>();
+            // Providers
             services.AddTransient<ITenantProvider, TenantProvider>();
+            services.AddScoped<ITokenProvider, TokenProvider>();
+
+
+            services.AddScoped<UserResolverService>();
+            
 
             // Tipo	Mesma requisição	Requisições diferentes
 

@@ -44,11 +44,13 @@ namespace Sagep.Infra.Data.Mappings
                 new ApplicationUser
                 {
                     Id = "8e445865-a24d-4543-a6c6-9443d048cdb9", // primary key
-                    UserName = "alan.rezendeeee@hotmail.com",
-                    NormalizedUserName = "ALAN.REZENDEEE@HOTMAIL.COM",
+                    FullName = "Alan Rezende",
+                    Email = "alan.rezendeeee@hotmail.com",
+                    NormalizedEmail = "alan.rezendeeee@hotmail.com".ToUpper(),
                     ConcurrencyStamp = "ca431822-360a-4ee6-b978-66564d429fc7",
                     SecurityStamp = "c9514850-61dd-4cc1-b909-88b79b035643",
-                    PasswordHash = "AQAAAAEAACcQAAAAEFGbgHKOKiDDs5fvXN8kHviorntHToMKurnVJNmsFQNInxhQOyZTwJ2w0SpbyCdZbA==",
+                    EmailConfirmed = true,
+                    PasswordHash = "AQAAAAEAACcQAAAAEFqndd0aQiH3EC2qn6j21zHj1rZKlwofwEpNhCLuA7EQsV3Fvv+S1HuJ0snxDruE8w==",
                     TenantId = null
                 }
             );

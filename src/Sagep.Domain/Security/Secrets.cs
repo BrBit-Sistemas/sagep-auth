@@ -1,4 +1,4 @@
-namespace SigespWeb.Api.Security
+namespace Sagep.Domain.Security
 {
      public static class Settings
     {

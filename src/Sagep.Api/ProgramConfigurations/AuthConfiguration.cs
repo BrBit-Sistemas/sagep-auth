@@ -1,5 +1,5 @@
 using System.Text;
-using SigespWeb.Api.Security;
+using Sagep.Domain.Security;
 using Sagep.Domain.Models;
 using Sagep.Infra.Data.Context;
 using Microsoft.AspNetCore.Identity;
