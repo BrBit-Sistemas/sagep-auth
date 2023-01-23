@@ -28,9 +28,9 @@ namespace Sagep.Infra.CrossCutting.IoC
             services.AddScoped<INavigationAppService, NavigationAppService>();
 
             // Providers
-            services.AddTransient<ITenantProvider, TenantProvider>();
-            services.AddTransient<IUserProvider, UserProvider>();
-            services.AddTransient<ITokenProvider, TokenProvider>();
+            services.AddScoped<ITenantProvider, TenantProvider>();
+            services.AddScoped<IUserProvider, UserProvider>();
+            services.AddScoped<ITokenProvider, TokenProvider>();
 
             // Tipo	Mesma requisição	Requisições diferentes
 

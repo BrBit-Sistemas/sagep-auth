@@ -46,6 +46,9 @@ namespace SigespWeb.Api.Middlewares
                         _httpContext?.Session.SetString("TenantId", user?.Tenant?.Id.ToString() ?? string.Empty);
                         _logger.LogInformation($"TenantId to session is => {user?.Tenant.Id}");
                     }
+                } else
+                {
+                    _logger.LogInformation($"Usuário fazendo acesso a método não protegido [AllowAnonymous], e não está passando token na request. Portanto, não está sendo possível obter a tenancy, uma vez que não é possível obter o usuário.");
                 }
             }
 

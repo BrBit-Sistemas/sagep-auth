@@ -7,7 +7,7 @@ namespace SigespWeb.Api.ProgramConfigurations
             if (services == null) throw new ArgumentNullException(nameof(services));
 
             services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromSeconds(1);
+                options.IdleTimeout = TimeSpan.FromMinutes(1);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
