@@ -45,6 +45,7 @@ namespace Sagep.Infra.Data.Context
         public DbSet<ApplicationUserGroup> ApplicationUserGroups { get; set; }
         public DbSet<VerticalNavItem> VerticalNavItems { get; set; }
         public DbSet<ApplicationNotification> ApplicationNotifications { get; set; }
+        public DbSet<Detento> Detentos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
@@ -73,6 +74,7 @@ namespace Sagep.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new ApplicationUserGroupMap());
             modelBuilder.ApplyConfiguration(new VerticalNavItemMap());
             modelBuilder.ApplyConfiguration(new ApplicationNotificationMap());
+            modelBuilder.ApplyConfiguration(new DetentoMap());
         }
 
         // Find loaded entity types from assemblies that application uses

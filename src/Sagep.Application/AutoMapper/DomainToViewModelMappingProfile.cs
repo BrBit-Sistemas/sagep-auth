@@ -24,7 +24,9 @@ namespace Sagep.Application.AutoMapper
                 .ForMember(dst => dst.Status, src => src.MapFrom(x => x.IsDeleted ? "INACTIVE" : "ACTIVE"))
                 .ForMember(dst => dst.ApplicationRoleGroupsNames, src => src.MapFrom(x => x.ApplicationRoleGroups.Select(x => x.ApplicationRole.Name)));
             CreateMap<ApplicationRoleGroup, ApplicationRoleGroupViewModel>()
-                .ForMember(dst => dst.Name, src => src.MapFrom(x => x.ApplicationRole.Name));;
+                .ForMember(dst => dst.Name, src => src.MapFrom(x => x.ApplicationRole.Name));
+            CreateMap<Detento, DetentoViewModel>()
+                .ForMember(dst => dst.Status, src => src.MapFrom(x => x.IsDeleted ? "INACTIVE" : "ACTIVE"));
         }
     }
 }

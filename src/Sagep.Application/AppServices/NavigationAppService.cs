@@ -137,6 +137,15 @@ namespace Sagep.Application.AppServices
             };
             navigationC.Children.Add(oldestSonNB1);
 
+            var detentos = new Son()
+            {
+                Title = "Detentos",
+                Path = "/negocios/comercial/detento/list",
+                Action = "list",
+                Subject = "ac-detento-page"
+            };
+            navigationC.Children.Add(detentos);
+
             var oldestSonNB2 = new Son
             {
                 Title = "Vendedores",
