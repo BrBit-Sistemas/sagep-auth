@@ -1,0 +1,99 @@
+-------------------------------------------------------------------------------------------------------
+ENTREGA ATÉ ABRIL/2023
+Educação
+Saúde
+Meu Reforço
+Andamento
+SIAPA - Java / JSF / PrimeNG
+Regime aberto - Facial
+
+-------------------------------------------------------------------------------------------------------
+ENTREGA ATÉ ABRIL/2023
+Dashboard
+NFS-e - Distrito Federal
+
+-------------------------------------------------------------------------------------------------------
+ENTREGA ATÉ DEZEMBRO/2023
+SuperSagepWeb
+
+-------------------------------------------------------------------------------------------------------
+| EDI - Melhorias |
+| EJA - Fases duplicando registros de materias | 
+| SEPARAR INDICADORES DE ESCOLARIDADE | ESCOLARIDADE INFORMADA E A REAL |
+| ÍNDICE DE EVOLUÇÃO DE LEITORES  - EVOLUÇÃO POR CRONOGRAMA DOS APROVADOS E NÃO APROVADOS |
+| INDICE EVOLUTIVO DE ADESÃO POR CRONOGRAMA - AO CLICAR NO CRONOGRAMA DO MÊS MOSTRAR GRÁFICO DE PIZZA COM OS CONCEITOS DE LEITURA |
+| CRIAR VARIÁVEL PARA PODER INFORMAR VALOR |
+
+NOTA E FREQUÊNCIA
+AJUSTAR PARA QUE A ESCOLARIDADE REAL SEJA ATUALIZADA PELO ENCCEJA OU EJA, OU VIA INFORMAÇÃO DE QUE SE TRATA DA ESCOLARIDADE REAL
+
+Dashboard
+sap.sagep.com.br
+-------------------------------------------------------------------------------------------------------
+Laboral/Pecúlio: 
+Educação: 
+
+-------------------------------------------------------------------------------------------------------
+Criação de documentação de sistema:
+Quais os tipos de documentação de sistema:
+https://www.edapp.com/blog/pt-br/10-software-criador-do-manual-de-treinamento-gratuito-2/
+
+Requisitos – Identifica atributos, recursos, características ou qualidades de um sistema - GITLAB
+Arquitetura/Design – Visão geral do software. Inclui relações com um ambiente e os princípios de construção a serem usados no design dos componentes do software.
+Técnica – Documentação de código, algoritmos, interfaces e APIs - SWAGGER | 
+Usuário final – Manuais para o usuário final, os administradores do sistema e a equipe de suporte.
+
+-------------------------------------------------------------------------------------------------------
+FERRAMENTA DE COMUNICAÇÃO ENTRE O TIME
+- SLACK OU ROCKET CHAT - DISCORD (JÁ É USADO O DISCORD)
+
+-------------------------------------------------------------------------------------------------------
+REUNIÃO COM ANDERSON E MAIRA 
+
+> MAIRA: Assuntos
+    * Em que pé está a construção do sagepweb
+    * Futuro profissional (Front e Back)
+    * Nota Fiscal de Serviço (ISS) - Emissão de NFs-e - (VERIFICAR COMO VAMOS FAZER COM RELAÇÃO A ESTA PRIORIDADE
+      VERIFICAR SE É POSSÍVEL TERCEIRIZARMOS ESTE TRABALHO)
+    * 
+> ANDERSON:
+
+-------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------
+PENDÊNCIAS
+> ENVIAR LINK EXTENSÃO DRAW.IO PARA JAMILE
+
+
+TIME FRONT END -------------------------------------------------------------------------------------------------------
+
+CRIAR USUÁRIO CHATGPT
+REACTJS
+NEXTJS
+CASLJS
+TYPESCRIPT
+https://mui.com/material-ui/api/grid/
+
+TIME BACK END -------------------------------------------------------------------------------------------------------
+
+MELHORIAS API (LABORAL/PECÚLIO)
+> SWAGGER
+> DDD
+> EVENT SOURCE + CQRS
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+Para Que Serve O Roadmap?
+Em resumo, o roadmap serve para agilizar a gestão de projetos e garantir que a equipe responsável alcance os objetivos propostos.
+
+Estes são alguns dos propósitos dessa ferramenta:
+
+Mostrar o ponto de partida e o ponto de chegada de cada projeto, partindo do cenário atual da empresa para definir onde a equipe precisa chegar
+Definir prazos claros para cada uma das etapas de um projeto, garantindo que a equipe siga uma sequência lógica até a data de entrega ou conclusão
+Dar visibilidade à equipe de todas as etapas do projeto, de modo que todos os profissionais envolvidos consigam acompanhar o seu desenvolvimento e fazer ajustes ao longo do caminho
+Ajudar os gestores a definir prioridades, uma vez que o roadmap deixa claro quais tarefas são urgentes, quais são importantes e quais podem esperar um pouco mais
+Integrar todas as partes interessadas e sustentar o trabalho em equipe
+Detalhar tarefas e processos para materializar o projeto e garantir que todos cumpram as suas metas
+Promover o alinhamento dos profissionais em torno de objetivos em comum
+Aumentar a produtividade do time com um roteiro simples de seguir e flexibilidade para realocar tarefas e prazos.
