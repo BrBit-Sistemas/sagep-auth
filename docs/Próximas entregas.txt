@@ -97,3 +97,67 @@ Integrar todas as partes interessadas e sustentar o trabalho em equipe
 Detalhar tarefas e processos para materializar o projeto e garantir que todos cumpram as suas metas
 Promover o alinhamento dos profissionais em torno de objetivos em comum
 Aumentar a produtividade do time com um roteiro simples de seguir e flexibilidade para realocar tarefas e prazos.
+
+
+--------------------------------------------------------------------------------------------------------------------
+Reunião planejamento
+Entidades base
+Tenant/Unidade Prisional
+Regional
+Detentos
+
+
+Front
+Falar do GitHub e controle de versão, principais comando do git.
+
+
+Dashboard
+Levantar os principais indicadores em 2 níveis
+Secretario
+Regional Permitir criar regionais
+
+
+NFs-e
+SuperSagep
+
+Back
+
+Infra
+
+--------------------------------------------------------------------------------------------------------------------
+ATA - REUNIÃO FRONT
+
+> Scrum
+> Integração contínua
+> GitHub
+
+SuperSagep - Estou levantando os requisitos e especificando
+Educação
+Social
+Carceragem
+Penal - Jurídico
+Inteligência
+Laboral/Pecúlio
+Triagem
+Casa da Revista
+
+Nota fiscal
+-> Implementar o fake-db (Deixar login funcionando com fake-db)
+-> 
+
+Dashboard
+Levantar os principais indicadores em 2 níveis;
+-> 
+
+
+GIT GitHub
+> git add . (Aceitar modificações no repositório local)
+> git commit -m "modificações docs projeto"
+> git reset HEAD~1 (Desfazer ação do último commit - git commit -m "xxxx")
+> git commit -m "modificações docs projeto on issue #1"
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+ATA - REUNIÃO BACK
+> 

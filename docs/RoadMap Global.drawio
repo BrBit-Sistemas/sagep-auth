@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="bpUySxT-tJ9Alsy62jRv" name="Página-1">
-        <mxGraphModel dx="1339" dy="784" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="546" dy="1110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -61,6 +61,50 @@
                 </mxCell>
                 <mxCell id="25" value="GATWAY" style="rounded=0;whiteSpace=wrap;html=1;fontSize=35;" parent="1" vertex="1">
                     <mxGeometry x="500" y="220" width="70" height="350" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="NE32P8JkKlTcE--eiLKt" name="Controle versão">
+        <mxGraphModel dx="758" dy="1110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="td6KHNSinaLsDBIIcACX-5" style="edgeStyle=none;html=1;" edge="1" parent="1" source="td6KHNSinaLsDBIIcACX-2" target="td6KHNSinaLsDBIIcACX-4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-7" style="edgeStyle=none;html=1;" edge="1" parent="1" source="td6KHNSinaLsDBIIcACX-2" target="td6KHNSinaLsDBIIcACX-3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-2" value="git hub&lt;br&gt;(REPOSITÓRIO REMOTO)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="370" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-8" style="edgeStyle=none;html=1;" edge="1" parent="1" source="td6KHNSinaLsDBIIcACX-3" target="td6KHNSinaLsDBIIcACX-6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-15" style="edgeStyle=none;html=1;" edge="1" parent="1" source="td6KHNSinaLsDBIIcACX-3" target="td6KHNSinaLsDBIIcACX-14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-3" value="git hub&lt;br&gt;(REPOSITÓRIO LOCAL)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="370" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-4" value="Teste.cs&lt;br&gt;- 1 linha" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-9" style="edgeStyle=none;html=1;startArrow=none;" edge="1" parent="1" source="td6KHNSinaLsDBIIcACX-10" target="td6KHNSinaLsDBIIcACX-4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-6" value="Teste.cs&lt;br&gt;- 2 linha" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-12" style="edgeStyle=none;html=1;" edge="1" parent="1" source="td6KHNSinaLsDBIIcACX-10" target="td6KHNSinaLsDBIIcACX-6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-10" value="comparação" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="td6KHNSinaLsDBIIcACX-14" value="commit local" style="rhombus;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="550" width="80" height="80" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
