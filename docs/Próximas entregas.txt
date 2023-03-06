@@ -9,12 +9,23 @@ Regime aberto - Facial
 
 -------------------------------------------------------------------------------------------------------
 ENTREGA ATÉ ABRIL/2023
-Dashboard
-NFS-e - Distrito Federal
+Dashboard - DOTNET 7.0
+NFS-e - Distrito Federal - NODEJS/EXPRESS
 
+ESTAS DUAS FEATURES SERÃO DOIS NOVOS MICROSERVICES
 -------------------------------------------------------------------------------------------------------
 ENTREGA ATÉ DEZEMBRO/2023
 SuperSagepWeb
+
+FRONT
+BACK
+
+REESCREVER SAÚDE - ANÁLISE DE VIABILIDADE
+Scrum
+EVENT SOURCE E CQRS
+DDD
+SWAGGER
+
 
 -------------------------------------------------------------------------------------------------------
 | EDI - Melhorias |
@@ -152,9 +163,15 @@ Levantar os principais indicadores em 2 níveis;
 
 GIT GitHub
 > git add . (Aceitar modificações no repositório local)
-> git commit -m "modificações docs projeto"
+> git commit -m "modificações docs projeto #1"
 > git reset HEAD~1 (Desfazer ação do último commit - git commit -m "xxxx")
 > git commit -m "modificações docs projeto on issue #1"
+> git status (status arquivos modificados)
+> git push (envia modificações para o repositório remoto)
+> git pull (obtém modificações do repositório remoto)
+
+
+
 
 
 

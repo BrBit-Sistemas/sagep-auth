@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="bpUySxT-tJ9Alsy62jRv" name="Página-1">
-        <mxGraphModel dx="546" dy="1110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1174" dy="1306" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -66,7 +66,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="NE32P8JkKlTcE--eiLKt" name="Controle versão">
-        <mxGraphModel dx="758" dy="1110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="998" dy="1110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -105,6 +105,62 @@
                 </mxCell>
                 <mxCell id="td6KHNSinaLsDBIIcACX-14" value="commit local" style="rhombus;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
                     <mxGeometry x="80" y="550" width="80" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="5yZrfQbFoxTBYDxgK3nf" name="Scrum">
+        <mxGraphModel dx="832" dy="925" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-14" style="edgeStyle=none;html=1;fontSize=18;" edge="1" parent="1" source="dZbqgmq0An5K9Dl8PIoh-1" target="dZbqgmq0An5K9Dl8PIoh-3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-15" style="edgeStyle=none;html=1;fontSize=18;" edge="1" parent="1" source="dZbqgmq0An5K9Dl8PIoh-1" target="dZbqgmq0An5K9Dl8PIoh-4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-16" style="edgeStyle=none;html=1;fontSize=18;" edge="1" parent="1" source="dZbqgmq0An5K9Dl8PIoh-1" target="dZbqgmq0An5K9Dl8PIoh-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-1" value="Scrum Master" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="420" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-18" style="edgeStyle=none;html=1;fontSize=18;" edge="1" parent="1" source="dZbqgmq0An5K9Dl8PIoh-2" target="dZbqgmq0An5K9Dl8PIoh-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-2" value="Product Owner" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="250" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-3" value="Front 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="365" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-4" value="Front 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="420" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-5" value="Front 3" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="365" y="520" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-13" style="edgeStyle=none;html=1;fontSize=18;" edge="1" parent="1" source="dZbqgmq0An5K9Dl8PIoh-6" target="dZbqgmq0An5K9Dl8PIoh-2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-6" value="Cliente" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-7" value="Sprint Planning" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="150" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-9" value="Sprint Poker" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="60" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-10" value="Sprint" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-11" value="Scrum - Metodolia Ágil" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="10" width="290" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="dZbqgmq0An5K9Dl8PIoh-17" value="Analista de negócios" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="224" width="180" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
