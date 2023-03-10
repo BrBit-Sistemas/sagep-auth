@@ -47,15 +47,6 @@ namespace Sagep.Application.AppServices
                 Children = new List<Son>()
             };
 
-            var comercial = new Son
-            {
-                Title = "Comercial",
-                Path = "/dashboards/comercial",
-                Action = "list",
-                Subject = "ac-dashboardComercial-page"
-            };
-            navigationA.Children.Add(comercial);
-
             var publica = new Son
             {
                 Title = "Pública",
@@ -64,24 +55,6 @@ namespace Sagep.Application.AppServices
                 Subject = "ac-dashboard-publica-page"
             };
             navigationA.Children.Add(publica);
-
-            navigationG = new VerticalNavItemViewModel
-            {
-                Title = "Relatórios",
-                Icon = "ChartBox",
-                BadgeContent = "",
-                BadgeColor = "primary",
-                Children = new List<Son>()
-            };
-
-            var comercialRelatorio = new Son
-            {
-                Title = "Comercial",
-                Path = "/relatorios/comercial",
-                Action = "list",
-                Subject = "ac-relatorioComercial-page"
-            };
-            navigationG.Children.Add(comercialRelatorio);
 
             navigationB = new VerticalNavItemViewModel
             {
@@ -128,123 +101,6 @@ namespace Sagep.Application.AppServices
                 Children = new List<Son>()
             };
 
-            var oldestSonNB1 = new Son
-            {
-                Title = "Clientes",
-                Path = "/negocios/comercial/cliente/list",
-                Action = "list",
-                Subject = "ac-cliente-page"
-            };
-            navigationC.Children.Add(oldestSonNB1);
-
-            var detentos = new Son()
-            {
-                Title = "Detentos",
-                Path = "/negocios/comercial/detento/list",
-                Action = "list",
-                Subject = "ac-detento-page"
-            };
-            navigationC.Children.Add(detentos);
-
-            var oldestSonNB2 = new Son
-            {
-                Title = "Vendedores",
-                Path = "/negocios/comercial/vendedor/list",
-                Action = "list",
-                Subject = "ac-vendedor-page"
-            };
-            navigationC.Children.Add(oldestSonNB2);
-
-            // var oldestSonNB2 = new Son
-            // {
-            //     Title = "Serviços",
-            //     Path = "/negocios/comercial/servico/list",
-            //     Action = "list",
-            //     Subject = "ac-servico-page"
-            // };
-            // navigationC.Children.Add(oldestSonNB2);
-
-            // var oldestSonNB5 = new Son
-            // {
-            //     Title = "Produtos",
-            //     Path = "/negocios/comercial/produto/list",
-            //     Action = "list",
-            //     Subject = "ac-produto-page"
-            // };
-            // navigationC.Children.Add(oldestSonNB5);
-
-            // var navigationD = new VerticalNavItemViewModel
-            // {
-            //     Title = "Processos",
-            //     Icon = "LanguageRubyOnRails",
-            //     BadgeContent = "",
-            //     BadgeColor = "primary",
-            //     Children = new List<Son>()
-            // };
-
-            // var oldestSonNB3 = new Son
-            // {
-            //     Title = "Pipelines",
-            //     Path = "/negocios/processos/pipeline/list",
-            //     Action = "list",
-            //     Subject = "ac-pipeline-page"
-            // };
-            
-            // navigationD.Children.Add(oldestSonNB3);
-
-            // var navigationE = new VerticalNavItemViewModel
-            // {
-            //     Title = "Parceiros",
-            //     Icon = "HandshakeOutline",
-            //     BadgeContent = "",
-            //     BadgeColor = "primary",
-            //     Children = new List<Son>()
-            // };
-            // var oldestSonNB4 = new Son
-            // {
-            //     Title = "Fornecedores",
-            //     Path = "/negocios/parceiros/fornecedor/list",
-            //     Action = "list",
-            //     Subject = "ac-fornecedor-page"
-            // };
-            // navigationE.Children.Add(oldestSonNB4);
-
-            navigationF = new VerticalNavItemViewModel
-            {
-                Title = "Configurações",
-                Icon = "CogOutline",
-                BadgeContent = "",
-                BadgeColor = "primary",
-                Children = new List<Son>()
-            };
-
-            var token = new Son
-            {
-                Title = "Chaves Apis",
-                Path = "/sistema/configuracoes/chave-api/list",
-                Action = "list",
-                Subject = "ac-chaveApiTerceiro-page"
-            };
-            navigationF.Children.Add(token);
-
-            var rotinas = new VerticalNavItemViewModel
-            {
-                Title = "Rotinas",
-                Icon = "TimerCogOutline",
-                BadgeContent = "",
-                BadgeColor = "primary",
-                Children = new List<Son>()
-            };
-
-            var rotinasTodas = new Son
-            {
-                Title = "Todas",
-                Path = "/sistema/rotinas/list",
-                Action = "list",
-                Subject = "ac-rotina-page"
-            };
-            rotinas.Children.Add(rotinasTodas);
-
             await Task.Run(() => navigation.Add(navigationA));
             await Task.Run(() => navigation.Add(navigationG));
             
@@ -255,19 +111,10 @@ namespace Sagep.Application.AppServices
                 Subject = "section-title-system"
             };
 
-            navigationSectionB = new VerticalNavItemViewModel
-            {
-                SectionTitle = "BUSSINESS",
-                Action = "list",
-                Subject = "section-title-bussiness"
-            };
-
             await Task.Run(() => navigation.Add(navigationSectionA));
             await Task.Run(() => navigation.Add(navigationB));
             await Task.Run(() => navigation.Add(navigationF));
-            await Task.Run(() => navigation.Add(rotinas));
             
-            await Task.Run(() => navigation.Add(navigationSectionB));
             await Task.Run(() => navigation.Add(navigationC));
 
             // await Task.Run(() => navigation.Add(navigationD));

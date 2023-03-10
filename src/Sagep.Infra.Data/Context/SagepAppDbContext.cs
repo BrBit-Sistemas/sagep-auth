@@ -94,7 +94,7 @@ namespace Sagep.Infra.Data.Context
 
             return _entityTypeCache;
         }
-
+    
         private static IEnumerable<Assembly> GetReferencingAssemblies()
         {
             var assemblies = new List<Assembly>();
