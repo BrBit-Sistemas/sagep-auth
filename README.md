@@ -1,5 +1,5 @@
-# Sagep-WebApi
-Nova webapi Sagep - .net7.0
+# SAGEP - AUTH
+Gateway de autorização e autenticação das aplicações web
 
 ## Tecnologias implementadas | Back-End
 * ASP.NET Core 7.0
