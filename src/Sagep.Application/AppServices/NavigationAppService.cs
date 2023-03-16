@@ -95,11 +95,20 @@ namespace Sagep.Application.AppServices
             var navigationC = new VerticalNavItemViewModel
             {
                 BadgeContent = "",
-                Title = "Comercial",
+                Title = "Fiscal",
                 Icon = "Domain",
                 BadgeColor = "primary",
                 Children = new List<Son>()
             };
+
+            var notaFiscal = new Son()
+            {
+                Title = "Nota fiscal",
+                Path = "/fiscal/notaFiscal/list",
+                Action = "list",
+                Subject = "ac-nfse-page"
+            };
+            navigationC.Children.Add(notaFiscal);
 
             await Task.Run(() => navigation.Add(navigationA));
             await Task.Run(() => navigation.Add(navigationG));
@@ -110,15 +119,19 @@ namespace Sagep.Application.AppServices
                 Action = "list",
                 Subject = "section-title-system"
             };
+            navigationSectionB = new VerticalNavItemViewModel
+            {
+                SectionTitle = "FISCAL",
+                Action = "list",
+                Subject = "section-title-system"
+            };
 
             await Task.Run(() => navigation.Add(navigationSectionA));
             await Task.Run(() => navigation.Add(navigationB));
             await Task.Run(() => navigation.Add(navigationF));
             
+            await Task.Run(() => navigation.Add(navigationSectionB));
             await Task.Run(() => navigation.Add(navigationC));
-
-            // await Task.Run(() => navigation.Add(navigationD));
-            // await Task.Run(() => navigation.Add(navigationE));
             #endregion
             
             return navigation.ToList();
