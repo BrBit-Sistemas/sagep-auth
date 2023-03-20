@@ -42,6 +42,7 @@ namespace Sagep.Domain.Models
             TelefoneNumero = telefoneNumero;
             EmailPrincipal = emailPrincipal;
         }
+        
 
         //Construtor vazio para o EF
         public Tenant() { }
