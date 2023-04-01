@@ -19,6 +19,7 @@ namespace Sagep.Application.AutoMapper
                 .ForMember(dst => dst.UserName, src => src.MapFrom(x => x.UserName))
                 .ForMember(dst => dst.Avatar, src => src.MapFrom(x => x.Avatar))
                 .ForMember(dst => dst.ApplicationUserGroups, src => src.MapFrom(x => x.ApplicationUserGroups));
+            CreateMap<ApplicationGroup, ApplicationGroupUpdateViewModel>();
             CreateMap<ApplicationRole, ApplicationRoleViewModel>();
             CreateMap<ApplicationGroup, ApplicationGroupViewModel>()
                 .ForMember(dst => dst.Status, src => src.MapFrom(x => x.IsDeleted ? "INACTIVE" : "ACTIVE"))
