@@ -164,6 +164,7 @@ namespace Sagep.Api.Controllers.v1
                 userMapped = _mapper.Map<ApplicationUserViewModel>(user);
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
+            
             #endregion
 
             #region Get token
@@ -208,7 +209,6 @@ namespace Sagep.Api.Controllers.v1
         [HttpGet]
         public async Task<IActionResult> MeAsync()
         {
-            var a = _httpContextAcessor?.HttpContext?.Session.GetString("TenantId");
             #region UserId resolve
             String userId = string.Empty;
             try

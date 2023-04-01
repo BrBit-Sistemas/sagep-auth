@@ -183,6 +183,8 @@ namespace Sagep.Api.Controllers.v1
             try
             {
                 groupMap = _mapper.Map<ApplicationGroup>(applicationGroupViewModel);
+                // TODO: após implementado tenant provider, substituir a linha de baixo pela obtenção dinâmica da tenancy
+                groupMap.TenantId = new Guid("206c645a-2966-4ad9-19a3-dced7c201bc4");
                 groupMap.UniqueKey = KeyGenerate.CreateUniqueKeyBySecret(applicationGroupViewModel.Name);
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }

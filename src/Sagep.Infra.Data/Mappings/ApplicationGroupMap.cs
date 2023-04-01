@@ -34,6 +34,11 @@ namespace Sagep.Infra.Data.Mappings
                 .HasForeignKey(c => c.TenantId)
                 .OnDelete(DeleteBehavior.NoAction);
             
+            // builder
+            //     .HasIndex(c => c.TenantId)
+            //     .HasFilter("\"IsDeleted\"=" + "\'" + 0 + "\'")
+            //     .IsUnique(false);
+            
             builder.HasQueryFilter(p => !p.IsDeleted);
             
             builder.HasData(

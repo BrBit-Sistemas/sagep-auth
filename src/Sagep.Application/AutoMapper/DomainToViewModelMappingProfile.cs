@@ -20,7 +20,13 @@ namespace Sagep.Application.AutoMapper
                 .ForMember(dst => dst.UserName, src => src.MapFrom(x => x.UserName))
                 .ForMember(dst => dst.Avatar, src => src.MapFrom(x => x.Avatar))
                 .ForMember(dst => dst.ApplicationUserGroups, src => src.MapFrom(x => x.ApplicationUserGroups));
+            CreateMap<ApplicationUser, UsuarioInfoViewModel>();
+            CreateMap<ApplicationUser, UsuarioContaViewModel>()
+                .ForMember(dst => dst.ApplicationUserGroups, src => src.MapFrom(x => x.ApplicationUserGroups));
             CreateMap<ApplicationGroup, ApplicationGroupUpdateViewModel>();
+            CreateMap<ApplicationRole, ApplicationRoleSelect2ViewModel>()
+                .ForMember(dst => dst.Name, src => src.MapFrom(x => x.Name))
+                .ForMember(dst => dst.RoleId, src => src.MapFrom(x => x.Id));
             CreateMap<ApplicationRole, ApplicationRoleViewModel>();
             CreateMap<ApplicationGroup, ApplicationGroupViewModel>()
                 .ForMember(dst => dst.Status, src => src.MapFrom(x => x.IsDeleted ? "INACTIVE" : "ACTIVE"))

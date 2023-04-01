@@ -97,9 +97,9 @@ namespace Sagep.Domain.Enums
 
         #region Title
         [Description("Pode listar o título do sistema")]
-        CanTitleSystemList = 5001,
-        [Description("Pode listar o título dos negócios")]
-        CanTitleBussinesList = 5002,
+        CanSectionTitleSystemList = 5001,
+        [Description("Pode listar o título Fiscal")]
+        CanSectionTitleFiscalList = 5002,
         #endregion
 
         #region Cliente Serviço

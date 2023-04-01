@@ -8,6 +8,8 @@ namespace Sagep.Application.AutoMapper
     {
         public ViewModelToDomainMappingProfile()
         {
+            CreateMap<UsuarioContaViewModel, ApplicationUser>();
+            CreateMap<UsuarioInfoViewModel, ApplicationUser>();
             CreateMap<ApplicationUserGroupViewModel, ApplicationUserGroup>();
             CreateMap<ApplicationUserGroupUpdateViewModel, ApplicationUserGroup>();
             CreateMap<ApplicationUserViewModel, ApplicationUserGroup>()
@@ -32,6 +34,8 @@ namespace Sagep.Application.AutoMapper
                 .ForMember(dst => dst.Status, src => src.MapFrom(x => x.Status));
             CreateMap<ApplicationRoleViewModel, ApplicationRole>();
             CreateMap<ApplicationGroupViewModel, ApplicationGroup>();
+            CreateMap<ApplicationGroupUpdateViewModel, ApplicationGroup>();
+            CreateMap<ApplicationRoleGroupUpdateViewModel, ApplicationRoleGroup>();
             CreateMap<ApplicationRoleGroupViewModel, ApplicationRoleGroup>();
             CreateMap<ApplicationRoleViewModel, ApplicationRole>();
             CreateMap<DetentoViewModel, Detento>();

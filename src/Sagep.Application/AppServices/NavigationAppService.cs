@@ -52,7 +52,7 @@ namespace Sagep.Application.AppServices
                 Title = "Pública",
                 Path = "/dashboards/publica",
                 Action = "list",
-                Subject = "ac-dashboard-publica-page"
+                Subject = "ac-dashboardPublica-page"
             };
             navigationA.Children.Add(publica);
 
@@ -103,7 +103,7 @@ namespace Sagep.Application.AppServices
 
             var notaFiscal = new Son()
             {
-                Title = "Nota fiscal",
+                Title = "Nota fiscal serviços",
                 Path = "/fiscal/notaFiscal/list",
                 Action = "list",
                 Subject = "ac-nfse-page"
@@ -117,13 +117,13 @@ namespace Sagep.Application.AppServices
             {
                 SectionTitle = "SYSTEM",
                 Action = "list",
-                Subject = "section-title-system"
+                Subject = "ac-sectionTitleSystem-page"
             };
             navigationSectionB = new VerticalNavItemViewModel
             {
                 SectionTitle = "FISCAL",
                 Action = "list",
-                Subject = "section-title-system"
+                Subject = "ac-sectionTitleFiscal-page"
             };
 
             await Task.Run(() => navigation.Add(navigationSectionA));
