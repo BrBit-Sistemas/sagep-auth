@@ -261,7 +261,7 @@ namespace Sagep.Api.Controllers.v1
             userMapped.Roles = new List<string>();
             try
             {
-                userMapped.Roles = MapperHelpers.MapFromTwoDepths(user.ApplicationUserGroups.Select(x => x.ApplicationGroup.ApplicationRoleGroups.Select(x => x.ApplicationRole.Name)));
+                userMapped.Roles = MapperHelpers.MapFromTwoDepths(user.ApplicationUserGroups.Select(x => x.ApplicationGroup.ApplicationRoleGroups.Select(x => x.ApplicationRole.Name).Cast<string>()));
             }
             catch (Exception ex) { AddErrorToTryCatch(ex); return CustomResponse(500); }
             #endregion
