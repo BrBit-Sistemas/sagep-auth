@@ -1,7 +1,5 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Sagep.Api.Controllers.v1;
 using Sagep.Application.Interfaces;
 using Sagep.Application.ViewModels;
 using Sagep.Domain.Security;

@@ -1,4 +1,3 @@
-using System;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Reflection;
