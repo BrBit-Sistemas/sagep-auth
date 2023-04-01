@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Options;
-using Sagep.Domain.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace SigespWeb.Api.ProgramConfigurations
@@ -50,8 +49,8 @@ namespace SigespWeb.Api.ProgramConfigurations
             var info = new OpenApiInfo()
             {
                 Version = desc.ApiVersion.ToString(),
-                Title = "Sagep - Web API",
-                Description = "Sagep WebApi",
+                Title = "Sagep Authentication and Authorization",
+                Description = "Sagep Auth",
                 TermsOfService = new Uri("https://www.sagep.com.br/terms-service"),
                 Contact = new OpenApiContact
                 {
@@ -61,7 +60,7 @@ namespace SigespWeb.Api.ProgramConfigurations
                 License = new OpenApiLicense
                 {
                     Name = "Br Bit Sistemas License",
-                    Url = new Uri("https://www.sagep.inf.br/license")
+                    Url = new Uri("https://www.sagep.com.br/license")
                 }
             };
 

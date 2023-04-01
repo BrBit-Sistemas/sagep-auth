@@ -3,19 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using System.IdentityModel.Tokens.Jwt;
 using Sagep.Domain.Models;
 using Sagep.Infra.Data.Context;
 using Sagep.Application.ViewModels;
-using Sagep.Domain.Enums;
-using Sagep.Api.Helpers;
 using Sagep.Domain.Security;
 using Sagep.Domain.Interfaces;
 
-namespace Sagep.Api.Controllers.v2
+namespace Sagep.Api.Controllers.v1
 {
     [ApiController]
-    [ApiVersion("2.0")]
+    [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/detentos")]
     public class DetentoController : ApiController
     {

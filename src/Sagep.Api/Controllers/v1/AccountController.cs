@@ -10,10 +10,10 @@ using Sagep.Domain.Enums;
 using Sagep.Api.Helpers;
 using Sagep.Domain.Security;
 
-namespace Sagep.Api.Controllers.v2
+namespace Sagep.Api.Controllers.v1
 {
     [ApiController]
-    [ApiVersion("2.0")]
+    [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/account")]
     public class AccountController : ApiController
     {

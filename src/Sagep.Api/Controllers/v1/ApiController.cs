@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace Sagep.Api.Controllers.v2
+namespace Sagep.Api.Controllers.v1
 {
     [ApiController]
     public abstract class ApiController : Controller

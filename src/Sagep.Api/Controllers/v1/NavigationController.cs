@@ -1,15 +1,15 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Sagep.Api.Controllers.v2;
+using Sagep.Api.Controllers.v1;
 using Sagep.Application.Interfaces;
 using Sagep.Application.ViewModels;
 using Sagep.Domain.Security;
 
-namespace BoxBack.WebApi.EndPoints
+namespace Sagep.Api.Controllers.v1
 {
     [ApiController]
-    [ApiVersion("2.0")]
+    [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/navigation")]
     public class NavigationController : ApiController
     {
