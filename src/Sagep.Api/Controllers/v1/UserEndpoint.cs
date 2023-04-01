@@ -77,7 +77,7 @@ namespace Sagep.Api.Controllers.v1
             
             #region Filter search
             if(!string.IsNullOrEmpty(q))
-                users = users.Where(x => x.FullName.Contains(q)).ToList();
+                users = users.Where(x => x.FullName.ToLower().Contains(q.ToLower())).ToList();
             #endregion
 
             #region Map

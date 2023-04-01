@@ -1,6 +1,5 @@
 using System;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Sagep.Application.Helpers
 {

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using AutoMapper;
 using Sagep.Application.ViewModels;
+using Sagep.Application.ViewModels.Select;
 using Sagep.Domain.Models;
 
 namespace Sagep.Application.AutoMapper
@@ -24,9 +25,12 @@ namespace Sagep.Application.AutoMapper
             CreateMap<ApplicationGroup, ApplicationGroupViewModel>()
                 .ForMember(dst => dst.Status, src => src.MapFrom(x => x.IsDeleted ? "INACTIVE" : "ACTIVE"))
                 .ForMember(dst => dst.ApplicationRoleGroupsNames, src => src.MapFrom(x => x.ApplicationRoleGroups.Select(x => x.ApplicationRole.Name)));
+            CreateMap<ApplicationGroup, ApplicationGroupSelect2ViewModel>()
+                .ForMember(dst => dst.Name, src => src.MapFrom(x => x.Name))
+                .ForMember(dst => dst.GroupId, src => src.MapFrom(x => x.Id));
             CreateMap<ApplicationRoleGroup, ApplicationRoleGroupViewModel>()
                 .ForMember(dst => dst.Name, src => src.MapFrom(x => x.ApplicationRole.Name));
-            CreateMap<Detento, DetentoViewModel>()
+            CreateMap<Detento, DetentoViewModel>()  
                 .ForMember(dst => dst.Status, src => src.MapFrom(x => x.IsDeleted ? "INACTIVE" : "ACTIVE"));
         }
     }
