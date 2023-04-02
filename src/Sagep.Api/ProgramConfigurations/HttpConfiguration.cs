@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Polly;
 using Polly.Extensions.Http;
 using Sagep.Application.HttpServices;
