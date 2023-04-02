@@ -9,6 +9,7 @@ using Sagep.Application.AppServices;
 using Sagep.Domain.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
+using Sagep.Domain.Services;
 
 namespace Sagep.Infra.CrossCutting.IoC
 {
@@ -27,6 +28,7 @@ namespace Sagep.Infra.CrossCutting.IoC
 
             // Application
             services.AddScoped<INavigationAppService, NavigationAppService>();
+            services.AddScoped<IHubConnectionCarceragemAppService, HubConnectionCarceragemAppService>();
 
             // Providers
             services.AddScoped<ITenantProvider, TenantProvider>();

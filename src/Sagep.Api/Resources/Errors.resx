@@ -1,4 +1,0 @@
-ValidationExceptionMessage=Houve um problema com a entrada fornecida. Verifique os valores e tente novamente.
-DomainExceptionMessage=Houve um problema ao processar a solicitação. Entre em contato com o suporte para obter ajuda.
-UnexpectedExceptionMessage=Ocorreu um erro inesperado ao processar a solicitação. Tente novamente mais tarde ou entre em contato com o suporte.
-ExceptionMessage=Ocorreu um erro inesperado ao processar a solicitação. Tente novamente mais tarde ou entre em contato com o suporte.

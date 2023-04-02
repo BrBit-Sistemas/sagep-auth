@@ -16,7 +16,7 @@ namespace Sagep.Application.HttpServices
         /// <response code="404">Nenhuma detento encontrada.</response>
         /// <response code="400">Problemas de validação ou dados nulos</response>
         /// <response code="500">Erro interno desconhecido</response>
-        [Get("/")]
+        [Get("/detentos/list")]
         [Headers("Content-Type: application/json")]
         Task<IList<DetentoViewModel>> GetAllAsync([Header("Authorization")] string apiKey = null);
     }

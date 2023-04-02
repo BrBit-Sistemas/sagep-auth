@@ -44,7 +44,12 @@ namespace Sagep.Api.Controllers.v1
                 var result = await _hubConnectionCarceragemAppService.GetAllAsync();
                 _logger.LogInformation($"{result}");
 
-                return Ok(result);
+                return Ok(new {
+                    AllData = result.ToList(),
+                    Detentos = result.ToList(),
+                    Params = "",
+                    Total = result.Count()
+                });
             }
             catch (ValidationException ex)
             {
