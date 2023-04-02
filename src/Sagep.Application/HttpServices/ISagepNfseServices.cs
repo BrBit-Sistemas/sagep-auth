@@ -18,6 +18,6 @@ namespace Sagep.Application.HttpServices
         /// <response code="500">Erro interno desconhecido</response>
         [Get("/")]
         [Headers("Content-Type: application/json")]
-        Task<IEnumerable<NotaFiscalServicoViewModel>> GetAll([Header("Authorization")] string apiKey);
+        Task<IList<NotaFiscalServicoViewModel>> GetAll([Header("Authorization")] string apiKey);
     }
 }

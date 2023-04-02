@@ -10,7 +10,6 @@ namespace Sagep.Application.HttpServices
         /// <summary>
         /// Obtém uma lista de detentos do microservice sagep-carceragem
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="apiKey"></param>
         /// <returns>Retorna um array json com uma lista de detentos.</returns>
         /// <response code="200">Retorna sucesso com um array json com os detentos.</response>
@@ -19,6 +18,6 @@ namespace Sagep.Application.HttpServices
         /// <response code="500">Erro interno desconhecido</response>
         [Get("/")]
         [Headers("Content-Type: application/json")]
-        Task<IEnumerable<DetentoViewModel>> GetAll([Header("Authorization")] string apiKey);
+        Task<IList<DetentoViewModel>> GetAll([Header("Authorization")] string apiKey);
     }
 }
