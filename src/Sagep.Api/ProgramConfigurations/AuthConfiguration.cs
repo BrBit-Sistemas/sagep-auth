@@ -5,6 +5,8 @@ using Sagep.Infra.Data.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Sagep.Api.SecutiryExtensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Sagep.Api.ProgramConfigurations
 {

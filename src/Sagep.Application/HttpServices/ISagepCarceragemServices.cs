@@ -18,6 +18,6 @@ namespace Sagep.Application.HttpServices
         /// <response code="500">Erro interno desconhecido</response>
         [Get("/")]
         [Headers("Content-Type: application/json")]
-        Task<IList<DetentoViewModel>> GetAll([Header("Authorization")] string apiKey);
+        Task<IList<DetentoViewModel>> GetAllAsync([Header("Authorization")] string apiKey = null);
     }
 }

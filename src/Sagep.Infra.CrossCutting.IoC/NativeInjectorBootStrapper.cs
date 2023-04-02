@@ -8,6 +8,7 @@ using Sagep.Application.Interfaces;
 using Sagep.Application.AppServices;
 using Sagep.Domain.Security;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Sagep.Infra.CrossCutting.IoC
 {
