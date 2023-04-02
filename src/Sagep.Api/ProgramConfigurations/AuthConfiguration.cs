@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-namespace SigespWeb.Api.ProgramConfigurations
+namespace Sagep.Api.ProgramConfigurations
 {
     public static class AuthConfiguration
     {

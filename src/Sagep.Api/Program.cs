@@ -1,4 +1,4 @@
-using SigespWeb.Api.ProgramConfigurations;
+using Sagep.Api.ProgramConfigurations;
 using SigespWeb.Api.Middlewares;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +47,9 @@ builder.Services.AddAutoMapperConfiguration();
 
 // ----- Authentication & Authorization -----
 builder.Services.AddAuthConfiguration(builder.Configuration);
+
+// ----- Http Factory -----
+builder.Services.AddHttpFactory(builder.Configuration);
 
 // ----- HttpContextAccessor -----
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

@@ -2,7 +2,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Reflection;
 
-namespace SigespWeb.Api.ProgramConfigurations
+namespace Sagep.Api.ProgramConfigurations
 {
     public static class SwaggerGenConfiguration
     {

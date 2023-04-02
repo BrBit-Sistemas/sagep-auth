@@ -1,7 +1,7 @@
 using Sagep.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace SigespWeb.Api.ProgramConfigurations
+namespace Sagep.Api.ProgramConfigurations
 {
     public static class DataBaseConfiguration
     {

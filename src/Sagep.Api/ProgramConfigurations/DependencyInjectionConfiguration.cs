@@ -1,7 +1,6 @@
-using System;
 using Sagep.Infra.CrossCutting.IoC;
 
-namespace SigespWeb.Api.ProgramConfigurations
+namespace Sagep.Api.ProgramConfigurations
 {
     public static class DependencyInjectionConfiguration
     {

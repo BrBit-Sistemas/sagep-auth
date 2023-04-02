@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Versioning;
-
-namespace SigespWeb.Api.ProgramConfigurations
+namespace Sagep.Api.ProgramConfigurations
 {
     public static class ApiVersioningExplorerConfiguration
     {

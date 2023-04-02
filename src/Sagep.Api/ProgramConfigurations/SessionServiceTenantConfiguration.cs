@@ -1,4 +1,4 @@
-namespace SigespWeb.Api.ProgramConfigurations
+namespace Sagep.Api.ProgramConfigurations
 {
     public static class SessionServiceTenantConfiguration
     {
