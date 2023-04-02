@@ -38,7 +38,6 @@ namespace Sagep.Application.AutoMapper
             CreateMap<ApplicationRoleGroupUpdateViewModel, ApplicationRoleGroup>();
             CreateMap<ApplicationRoleGroupViewModel, ApplicationRoleGroup>();
             CreateMap<ApplicationRoleViewModel, ApplicationRole>();
-            CreateMap<DetentoViewModel, Detento>();
         }
     }
 }
