@@ -7,6 +7,6 @@ namespace Sagep.Application.Interfaces
 {
     public interface IHubConnectionCarceragemAppService
     {
-        Task<IEnumerable<DetentoViewModel>> GetAllAsync();
+        Task<IEnumerable<DetentoLegadoViewModel>> GetAllAsync();
     }
 }

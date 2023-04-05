@@ -21,9 +21,9 @@ namespace Sagep.Domain.Services
             _sagepCarceragemService = sagepCarceragemService;
         }
 
-        public async Task<IEnumerable<DetentoViewModel>> GetAllAsync()
+        public async Task<IEnumerable<DetentoLegadoViewModel>> GetAllAsync()
         {
-            var detentos = await _sagepCarceragemService.GetAllAsync("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZTQ0NTg2NS1hMjRkLTQ1NDMtYTZjNi05NDQzZDA0OGNkYjkiLCJ1bmlxdWVfbmFtZSI6ImFsYW4ucmV6ZW5kZWVlZUBob3RtYWlsLmNvbSIsInJvbGUiOiJNYXN0ZXIiLCJuYmYiOjE2ODA0NjYzMjQsImV4cCI6MTY4MTA3MTEyNCwiaWF0IjoxNjgwNDY2MzI0fQ.UqoR6q4kIQ6oc2a7PjwkIFJFXuF9210wu5vm7YZgdJI");
+            var detentos = await _sagepCarceragemService.GetAllAsync("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZTQ0NTg2NS1hMjRkLTQ1NDMtYTZjNi05NDQzZDA0OGNkYjkiLCJ1bmlxdWVfbmFtZSI6ImFsYW4ucmV6ZW5kZWVlZUBob3RtYWlsLmNvbSIsInJvbGUiOiJNYXN0ZXIiLCJuYmYiOjE2ODA3MTczNjAsImV4cCI6MTY4MTMyMjE2MCwiaWF0IjoxNjgwNzE3MzYwfQ.6pxUsPxNbyfVQM2-Q1O9s21nn1RWRdbwiG2R9R7gSVM");
             return detentos;
         }
     }
